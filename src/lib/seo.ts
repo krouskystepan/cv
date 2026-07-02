@@ -1,6 +1,7 @@
 import type { Locale } from "@/i18n/config";
 import { openGraphLocales } from "@/i18n/config";
 import { getDictionary } from "@/i18n/get-dictionary";
+import { BRAND_IMAGE_SIZE, getBrandImageAlt } from "@/lib/brand";
 import {
   getFullName,
   getResume,
@@ -14,6 +15,12 @@ export function generateMetadata(locale: Locale) {
   const description = resume.summary.slice(0, 160);
   const baseUrl = resume.metadata.canonicalUrl;
   const url = `${baseUrl}/${locale}`;
+  const brandImage = {
+    url: `/${locale}/opengraph-image`,
+    width: BRAND_IMAGE_SIZE.width,
+    height: BRAND_IMAGE_SIZE.height,
+    alt: getBrandImageAlt(name),
+  };
 
   return {
     title,
@@ -36,15 +43,13 @@ export function generateMetadata(locale: Locale) {
       title,
       description,
       siteName: `${name} - ${dictionary.seo.siteName}`,
-      images: resume.profile.avatar
-        ? [{ url: resume.profile.avatar, width: 400, height: 400, alt: name }]
-        : undefined,
+      images: [brandImage],
     },
     twitter: {
       card: "summary_large_image" as const,
       title,
       description,
-      images: resume.profile.avatar ? [resume.profile.avatar] : undefined,
+      images: [`/${locale}/twitter-image`],
     },
     robots: {
       index: true,
