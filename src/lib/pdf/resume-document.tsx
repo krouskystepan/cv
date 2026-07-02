@@ -29,6 +29,7 @@ import {
   formatYearRange,
 } from '@/lib/utils'
 import { PDF_FONT } from '@/lib/pdf/fonts'
+import { PDF_QR_DISPLAY_SIZE } from '@/lib/qr-code'
 
 const black = '#000000'
 const bodyColor = '#1a1a1a'
@@ -67,15 +68,16 @@ const styles = StyleSheet.create({
     gap: 2,
   },
   qrImage: {
-    width: 56,
-    height: 56,
+    width: PDF_QR_DISPLAY_SIZE,
+    height: PDF_QR_DISPLAY_SIZE,
+    borderRadius: 4,
   },
   qrLabel: {
     fontSize: 6,
     lineHeight: 1.2,
     color: muted,
     textAlign: 'center',
-    maxWidth: 54,
+    maxWidth: PDF_QR_DISPLAY_SIZE - 4,
   },
   name: {
     fontSize: 17,
