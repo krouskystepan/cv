@@ -2,6 +2,7 @@
 
 import { useEffect } from "react";
 import { useLocale } from "@/components/locale-provider";
+import { downloadPdf, printPdf } from "@/lib/pdf-client";
 
 export function KeyboardShortcuts() {
   const { locale } = useLocale();
@@ -12,12 +13,12 @@ export function KeyboardShortcuts() {
 
       if (isMod && event.key === "p") {
         event.preventDefault();
-        window.print();
+        printPdf(locale);
       }
 
       if (isMod && event.key === "d") {
         event.preventDefault();
-        window.open(`/api/pdf?lang=${locale}`, "_blank");
+        downloadPdf(locale);
       }
     }
 

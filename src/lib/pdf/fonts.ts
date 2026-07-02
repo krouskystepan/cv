@@ -22,6 +22,8 @@ export function registerPdfFonts(): void {
     ],
   });
 
+  Font.registerHyphenationCallback((word) => [word]);
+
   registered = true;
 }
 

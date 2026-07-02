@@ -8,13 +8,14 @@ export async function GET(request: NextRequest) {
   try {
     const lang = request.nextUrl.searchParams.get("lang");
     const locale = lang && isLocale(lang) ? lang : "en";
+    const inline = request.nextUrl.searchParams.get("inline") === "1";
     const pdfBuffer = await generateResumePdf(locale);
 
     return new NextResponse(new Uint8Array(pdfBuffer), {
       status: 200,
       headers: {
         "Content-Type": "application/pdf",
-        "Content-Disposition": getPdfContentDisposition(locale),
+        "Content-Disposition": getPdfContentDisposition(locale, inline),
         "Cache-Control": "no-store",
       },
     });

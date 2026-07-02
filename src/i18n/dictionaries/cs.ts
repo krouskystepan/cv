@@ -81,7 +81,7 @@ export const dictionary: Dictionary = {
   print: {
     summary: "O mně",
     experience: "Praxe",
-    selectedProjects: "Vybrané projekty",
+    selectedProjects: "Projekty",
     skills: "Dovednosti",
     education: "Vzdělání",
     languages: "Jazyky",

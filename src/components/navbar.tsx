@@ -8,10 +8,11 @@ import { DownloadPdfButton } from '@/components/download-pdf-button'
 import { LanguageSwitcher } from '@/components/language-switcher'
 import { ThemeToggle } from '@/components/theme-toggle'
 import { useLocale } from '@/components/locale-provider'
+import { printPdf } from '@/lib/pdf-client'
 import { cn } from '@/lib/utils'
 
 export function Navbar() {
-  const { dictionary, resume } = useLocale()
+  const { dictionary, resume, locale } = useLocale()
   const [activeSection, setActiveSection] = useState('home')
   const [mobileOpen, setMobileOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
@@ -78,7 +79,7 @@ export function Navbar() {
   }, [mobileOpen])
 
   function handlePrint() {
-    window.print()
+    printPdf(locale)
   }
 
   return (

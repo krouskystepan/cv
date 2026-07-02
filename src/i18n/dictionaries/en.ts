@@ -27,9 +27,9 @@ export const dictionary: Dictionary = {
     website: "Website",
     drivingLicense: "Driving license",
     downloadPdf: "Download PDF",
-    downloadPdfAria: "Download resume as PDF",
+    downloadPdfAria: "Download CV as PDF",
     print: "Print",
-    printAria: "Print resume",
+    printAria: "Print CV",
     printTitle: "Print (Ctrl+P)",
     present: "Present",
     yearsExperience: "{years}+ years experience",
@@ -39,7 +39,7 @@ export const dictionary: Dictionary = {
     sourceCode: "Source code",
     portfolio: "Portfolio",
     scanToView: "Scan to view online",
-    qrCodeAria: "QR code linking to resume website",
+    qrCodeAria: "QR code linking to CV website",
     viewCredential: "View credential",
     openMenu: "Open menu",
     closeMenu: "Close menu",
@@ -81,7 +81,7 @@ export const dictionary: Dictionary = {
   print: {
     summary: "Summary",
     experience: "Experience",
-    selectedProjects: "Selected Projects",
+    selectedProjects: "Projects",
     skills: "Skills",
     education: "Education",
     languages: "Languages",
@@ -92,6 +92,6 @@ export const dictionary: Dictionary = {
     shortcuts: "⌘P print · ⌘D download PDF",
   },
   seo: {
-    siteName: "Resume",
+    siteName: "CV",
   },
 };

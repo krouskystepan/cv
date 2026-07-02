@@ -3,6 +3,7 @@ import {
   Page,
   Text,
   View,
+  Image,
   StyleSheet,
 } from "@react-pdf/renderer";
 import type { Locale } from "@/i18n/config";
@@ -45,6 +46,32 @@ const styles = StyleSheet.create({
     paddingBottom: 6,
     borderBottomWidth: 1.5,
     borderBottomColor: black,
+  },
+  headerRow: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "flex-start",
+    gap: 12,
+  },
+  headerMain: {
+    flex: 1,
+    minWidth: 0,
+  },
+  qrContainer: {
+    flexShrink: 0,
+    alignItems: "center",
+    gap: 2,
+  },
+  qrImage: {
+    width: 56,
+    height: 56,
+  },
+  qrLabel: {
+    fontSize: 6,
+    lineHeight: 1.2,
+    color: muted,
+    textAlign: "center",
+    maxWidth: 54,
   },
   name: {
     fontSize: 17,
@@ -118,6 +145,7 @@ const styles = StyleSheet.create({
     color: muted,
     width: 88,
     textAlign: "right",
+    flexShrink: 0,
   },
   bulletRow: {
     flexDirection: "row",
@@ -159,7 +187,8 @@ const styles = StyleSheet.create({
   skillItem: {
     width: "50%",
     flexDirection: "row",
-    marginBottom: 1,
+    alignItems: "flex-start",
+    marginBottom: 2,
     paddingRight: 6,
   },
   skillLabel: {
@@ -168,7 +197,9 @@ const styles = StyleSheet.create({
     fontWeight: 700,
     lineHeight: 1.3,
     color: black,
-    width: 48,
+    width: 92,
+    flexShrink: 0,
+    paddingRight: 4,
   },
   skillValue: {
     flex: 1,
@@ -181,9 +212,11 @@ const styles = StyleSheet.create({
   },
   bottomCol: {
     flex: 1,
+    minWidth: 0,
   },
   bottomColRight: {
     flex: 1,
+    minWidth: 0,
     paddingLeft: 14,
   },
   educationItem: {
@@ -193,7 +226,7 @@ const styles = StyleSheet.create({
     fontSize: 8.5,
     fontFamily: PDF_FONT,
     fontWeight: 700,
-    lineHeight: 1.25,
+    lineHeight: 1.35,
     color: black,
     marginBottom: 1,
   },
@@ -234,7 +267,13 @@ function Bullets({ items }: { items: string[] }) {
   );
 }
 
-export function ResumePdfDocument({ locale = "en" }: { locale?: Locale }) {
+export function ResumePdfDocument({
+  locale = "en",
+  qrDataUrl,
+}: {
+  locale?: Locale;
+  qrDataUrl?: string;
+}) {
   const resume = getResume(locale);
   const dictionary = getDictionary(locale);
   const name = getFullName(resume);
@@ -249,17 +288,27 @@ export function ResumePdfDocument({ locale = "en" }: { locale?: Locale }) {
     >
       <Page size="A4" style={styles.page}>
         <View style={styles.header}>
-          <Text style={styles.name}>{name}</Text>
-          <Text style={styles.subtitle}>
-            {resume.profile.title}  ·  {formatYearsExperience(years, locale)}
-          </Text>
-          <Text style={styles.contact}>{getContactLine(resume)}</Text>
-          <Text style={styles.contact}>{getLinksLine(resume)}</Text>
-          {getDrivingLicenseLine(locale, resume) && (
-            <Text style={styles.contact}>
-              {getDrivingLicenseLine(locale, resume)}
-            </Text>
-          )}
+          <View style={styles.headerRow}>
+            <View style={styles.headerMain}>
+              <Text style={styles.name}>{name}</Text>
+              <Text style={styles.subtitle}>
+                {resume.profile.title}  ·  {formatYearsExperience(years, locale)}
+              </Text>
+              <Text style={styles.contact}>{getContactLine(resume)}</Text>
+              <Text style={styles.contact}>{getLinksLine(resume)}</Text>
+              {getDrivingLicenseLine(locale, resume) && (
+                <Text style={styles.contact}>
+                  {getDrivingLicenseLine(locale, resume)}
+                </Text>
+              )}
+            </View>
+            {qrDataUrl && (
+              <View style={styles.qrContainer}>
+                <Image src={qrDataUrl} style={styles.qrImage} />
+                <Text style={styles.qrLabel}>{dictionary.common.scanToView}</Text>
+              </View>
+            )}
+          </View>
         </View>
 
         <Section title={dictionary.print.summary}>
@@ -300,7 +349,7 @@ export function ResumePdfDocument({ locale = "en" }: { locale?: Locale }) {
         <Section title={dictionary.print.skills}>
           <View style={styles.skillGrid}>
             {getCondensedSkillLines(locale, resume).map((line) => (
-              <View key={line.label} style={styles.skillItem} wrap={false}>
+              <View key={line.label} style={styles.skillItem}>
                 <Text style={styles.skillLabel}>{line.label}</Text>
                 <Text style={styles.skillValue}>{line.value}</Text>
               </View>
@@ -313,7 +362,7 @@ export function ResumePdfDocument({ locale = "en" }: { locale?: Locale }) {
             <View style={styles.bottomCol}>
               <Text style={styles.sectionTitle}>{dictionary.print.education}</Text>
               {resume.education.map((item) => (
-                <View key={item.id} style={styles.educationItem} wrap={false}>
+                <View key={item.id} style={styles.educationItem}>
                   <Text style={styles.educationTitle}>
                     {item.degree}, {item.field}
                   </Text>

@@ -3,6 +3,7 @@
 import { Download } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useLocale } from "@/components/locale-provider";
+import { downloadPdf } from "@/lib/pdf-client";
 
 export function DownloadPdfButton({
   variant = "default",
@@ -18,7 +19,7 @@ export function DownloadPdfButton({
   const { dictionary, locale } = useLocale();
 
   function handleDownload() {
-    window.open(`/api/pdf?lang=${locale}&v=${Date.now()}`, "_blank");
+    downloadPdf(locale);
   }
 
   return (
