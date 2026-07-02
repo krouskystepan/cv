@@ -27,16 +27,16 @@ export function Navbar() {
       {
         href: '#certifications',
         label: dictionary.nav.certifications,
-        show: () => resume.certifications.length > 0
+        show: () => resume.certifications.length > 0,
       },
-      { href: '#contact', label: dictionary.nav.contact }
+      { href: '#contact', label: dictionary.nav.contact },
     ],
-    [dictionary.nav, resume.certifications.length]
+    [dictionary.nav, resume.certifications.length],
   )
 
   const navItems = useMemo(
     () => baseNavItems.filter((item) => !item.show || item.show()),
-    [baseNavItems]
+    [baseNavItems],
   )
 
   useEffect(() => {
@@ -81,102 +81,24 @@ export function Navbar() {
     <>
       {mobileOpen && <div className="h-16 lg:hidden" aria-hidden />}
       <header
-      className={cn(
-        'no-print top-0 z-50 w-full',
-        mobileOpen ? 'fixed inset-x-0' : 'sticky',
-        !mobileOpen &&
-          'transition-[border-color,background-color,box-shadow] duration-300',
-        mobileOpen
-          ? 'z-80 border-b border-border bg-background'
-          : scrolled
-            ? 'border-b border-border/80 bg-background/85 shadow-sm shadow-black/5 backdrop-blur-lg backdrop-saturate-150'
-            : 'border-b border-transparent bg-background/40 backdrop-blur-sm'
-      )}
-    >
-      <nav
-        className="mx-auto flex h-16 w-full max-w-[900px] items-center justify-between gap-3 px-6"
-        aria-label={dictionary.common.mainNavigation}
+        className={cn(
+          'no-print top-0 z-50 w-full',
+          mobileOpen ? 'fixed inset-x-0' : 'sticky',
+          !mobileOpen &&
+            'transition-[border-color,background-color,box-shadow] duration-300',
+          mobileOpen
+            ? 'z-80 border-b border-border bg-background'
+            : scrolled
+              ? 'border-b border-border/80 bg-background/85 shadow-sm shadow-black/5 backdrop-blur-lg backdrop-saturate-150'
+              : 'border-b border-transparent bg-background/40 backdrop-blur-sm',
+        )}
       >
-        <div className="flex min-w-0 items-center">
-          <ul className="hidden items-center gap-0.5 lg:flex">
-          {navItems.map((item) => {
-            const sectionId = item.href.slice(1)
-            const isActive = activeSection === sectionId
-
-            return (
-              <li key={item.href}>
-                <Link
-                  href={item.href}
-                  className={cn(
-                    'relative rounded-md px-2.5 py-1.5 text-sm transition-colors lg:px-3',
-                    isActive
-                      ? 'font-medium text-foreground'
-                      : 'text-muted-foreground hover:bg-accent/60 hover:text-foreground'
-                  )}
-                >
-                  {item.label}
-                  {isActive && (
-                    <span
-                      className="absolute inset-x-2.5 -bottom-4.5 h-0.5 rounded-full bg-highlight"
-                      aria-hidden
-                    />
-                  )}
-                </Link>
-              </li>
-            )
-          })}
-          </ul>
-        </div>
-
-        <div className="flex shrink-0 items-center gap-0.5">
-          <LanguageSwitcher compact />
-          <div className="hidden h-5 w-px bg-border lg:block" aria-hidden />
-          <DownloadPdfButton
-            variant="ghost"
-            size="icon"
-            showLabel={false}
-            className="hidden h-8 w-8 text-muted-foreground hover:text-foreground min-[400px]:inline-flex"
-          />
-          <Button
-            variant="ghost"
-            size="icon"
-            onClick={handlePrint}
-            aria-label={dictionary.common.printAria}
-            title={dictionary.common.printTitle}
-            className="hidden h-8 w-8 text-muted-foreground hover:text-foreground min-[400px]:inline-flex"
-          >
-            <Printer className="h-4 w-4" />
-          </Button>
-          <ThemeToggle />
-          <Button
-            variant="ghost"
-            size="icon"
-            className="lg:hidden"
-            onClick={() => setMobileOpen(!mobileOpen)}
-            aria-label={
-              mobileOpen
-                ? dictionary.common.closeMenu
-                : dictionary.common.openMenu
-            }
-            aria-expanded={mobileOpen}
-          >
-            {mobileOpen ? (
-              <X className="h-5 w-5" />
-            ) : (
-              <Menu className="h-5 w-5" />
-            )}
-          </Button>
-        </div>
-      </nav>
-
-      {mobileOpen && (
-        <>
-          <div
-            className="pointer-events-none fixed inset-x-0 top-16 bottom-0 z-60 bg-black/45 lg:hidden dark:bg-black/45"
-            aria-hidden
-          />
-          <div className="fixed inset-x-0 top-16 z-70 max-h-[calc(100dvh-4rem)] overflow-y-auto border-b border-border bg-background px-6 py-5 shadow-lg lg:hidden dark:bg-background/90">
-            <ul className="flex flex-col gap-0.5">
+        <nav
+          className="mx-auto flex h-16 w-full max-w-[900px] items-center justify-between gap-3 px-6"
+          aria-label={dictionary.common.mainNavigation}
+        >
+          <div className="flex min-w-0 items-center">
+            <ul className="hidden items-center gap-0.5 lg:flex">
               {navItems.map((item) => {
                 const sectionId = item.href.slice(1)
                 const isActive = activeSection === sectionId
@@ -185,40 +107,118 @@ export function Navbar() {
                   <li key={item.href}>
                     <Link
                       href={item.href}
-                      onClick={() => setMobileOpen(false)}
                       className={cn(
-                        'flex items-center rounded-lg px-3 py-2.5 text-sm transition-colors',
+                        'relative rounded-md px-2.5 py-1.5 text-sm transition-colors lg:px-3',
                         isActive
-                          ? 'bg-accent font-medium text-foreground'
-                          : 'text-muted-foreground hover:bg-accent/60 hover:text-foreground'
+                          ? 'font-medium text-foreground'
+                          : 'text-muted-foreground hover:bg-accent/60 hover:text-foreground',
                       )}
                     >
                       {item.label}
+                      {isActive && (
+                        <span
+                          className="absolute inset-x-2.5 -bottom-4.5 h-0.5 rounded-full bg-highlight"
+                          aria-hidden
+                        />
+                      )}
                     </Link>
                   </li>
                 )
               })}
             </ul>
-            <div className="mt-5 hidden flex-col gap-2 border-t border-border pt-5 max-[399px]:flex">
-              <DownloadPdfButton
-                variant="outline"
-                size="sm"
-                className="w-full"
-              />
-              <Button
-                variant="outline"
-                size="sm"
-                onClick={handlePrint}
-                className="w-full"
-              >
-                <Printer className="h-4 w-4" />
-                {dictionary.common.print}
-              </Button>
-            </div>
           </div>
-        </>
-      )}
-    </header>
+
+          <div className="flex shrink-0 items-center gap-0.5">
+            <LanguageSwitcher compact />
+            <div className="hidden h-5 w-px bg-border lg:block" aria-hidden />
+            <DownloadPdfButton
+              variant="ghost"
+              size="icon"
+              showLabel={false}
+              className="hidden h-8 w-8 text-muted-foreground hover:text-foreground min-[400px]:inline-flex"
+            />
+            <Button
+              variant="ghost"
+              size="icon"
+              onClick={handlePrint}
+              aria-label={dictionary.common.printAria}
+              title={dictionary.common.printTitle}
+              className="hidden h-8 w-8 text-muted-foreground hover:text-foreground min-[400px]:inline-flex"
+            >
+              <Printer className="h-4 w-4" />
+            </Button>
+            <ThemeToggle />
+            <Button
+              variant="ghost"
+              size="icon"
+              className="lg:hidden"
+              onClick={() => setMobileOpen(!mobileOpen)}
+              aria-label={
+                mobileOpen
+                  ? dictionary.common.closeMenu
+                  : dictionary.common.openMenu
+              }
+              aria-expanded={mobileOpen}
+            >
+              {mobileOpen ? (
+                <X className="h-5 w-5" />
+              ) : (
+                <Menu className="h-5 w-5" />
+              )}
+            </Button>
+          </div>
+        </nav>
+
+        {mobileOpen && (
+          <>
+            <div
+              className="pointer-events-none fixed inset-x-0 top-16 bottom-0 z-60 bg-black/45 lg:hidden dark:bg-black/45"
+              aria-hidden
+            />
+            <div className="fixed inset-x-0 top-16 z-70 max-h-[calc(100dvh-4rem)] overflow-y-auto border-b border-border bg-background px-6 py-5 shadow-lg lg:hidden dark:bg-background/90">
+              <ul className="flex flex-col gap-0.5">
+                {navItems.map((item) => {
+                  const sectionId = item.href.slice(1)
+                  const isActive = activeSection === sectionId
+
+                  return (
+                    <li key={item.href}>
+                      <Link
+                        href={item.href}
+                        onClick={() => setMobileOpen(false)}
+                        className={cn(
+                          'flex items-center rounded-lg px-3 py-2.5 text-sm transition-colors',
+                          isActive
+                            ? 'bg-accent font-medium text-foreground'
+                            : 'text-muted-foreground hover:bg-accent/60 hover:text-foreground',
+                        )}
+                      >
+                        {item.label}
+                      </Link>
+                    </li>
+                  )
+                })}
+              </ul>
+              <div className="mt-5 hidden flex-col gap-2 border-t border-border pt-5 max-[399px]:flex">
+                <DownloadPdfButton
+                  variant="outline"
+                  size="sm"
+                  className="w-full"
+                />
+                <Button
+                  variant="outline"
+                  size="sm"
+                  onClick={handlePrint}
+                  className="w-full"
+                >
+                  <Printer className="h-4 w-4" />
+                  {dictionary.common.print}
+                </Button>
+              </div>
+            </div>
+          </>
+        )}
+      </header>
     </>
   )
 }

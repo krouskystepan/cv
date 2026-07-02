@@ -9,7 +9,7 @@ export function AvailabilityDot() {
         className="absolute inset-0 rounded-full motion-reduce:hidden"
         style={{
           backgroundColor: '#22c55e',
-          animation: 'availability-dot-pulse 2.75s ease-in-out infinite'
+          animation: 'availability-dot-pulse 2.75s ease-in-out infinite',
         }}
       />
       <svg

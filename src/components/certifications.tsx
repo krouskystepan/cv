@@ -1,23 +1,23 @@
-import Link from "next/link";
-import { ExternalLink } from "lucide-react";
+import Link from 'next/link'
+import { ExternalLink } from 'lucide-react'
 import {
   Card,
   CardContent,
   CardDescription,
   CardHeader,
   CardTitle,
-} from "@/components/ui/card";
-import { Section } from "@/components/section";
-import type { Locale } from "@/i18n/config";
-import { getDictionary } from "@/i18n/get-dictionary";
-import { getResume } from "@/lib/resume";
-import { formatDate } from "@/lib/utils";
+} from '@/components/ui/card'
+import { Section } from '@/components/section'
+import type { Locale } from '@/i18n/config'
+import { getDictionary } from '@/i18n/get-dictionary'
+import { getResume } from '@/lib/resume'
+import { formatDate } from '@/lib/utils'
 
 export function Certifications({ locale }: { locale: Locale }) {
-  const resume = getResume(locale);
-  const dictionary = getDictionary(locale);
+  const resume = getResume(locale)
+  const dictionary = getDictionary(locale)
 
-  if (resume.certifications.length === 0) return null;
+  if (resume.certifications.length === 0) return null
 
   return (
     <Section id="certifications" title={dictionary.sections.certifications}>
@@ -31,7 +31,10 @@ export function Certifications({ locale }: { locale: Locale }) {
               <CardDescription>{cert.issuer}</CardDescription>
             </CardHeader>
             <CardContent className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
-              <time className="text-base text-muted-foreground" dateTime={cert.date}>
+              <time
+                className="text-base text-muted-foreground"
+                dateTime={cert.date}
+              >
                 {formatDate(cert.date, locale)}
               </time>
               {cert.credentialUrl && (
@@ -50,5 +53,5 @@ export function Certifications({ locale }: { locale: Locale }) {
         ))}
       </div>
     </Section>
-  );
+  )
 }

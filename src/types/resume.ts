@@ -1,16 +1,8 @@
 export type EmploymentType =
-  | 'Full-time'
-  | 'Part-time'
-  | 'Contract'
-  | 'Freelance'
-  | 'Internship'
+  'Full-time' | 'Part-time' | 'Contract' | 'Freelance' | 'Internship'
 
 export type LanguageLevel =
-  | 'Native'
-  | 'Fluent'
-  | 'Professional'
-  | 'Intermediate'
-  | 'Basic'
+  'Native' | 'Fluent' | 'Professional' | 'Intermediate' | 'Basic'
 
 export type AvailabilityStatus =
   | 'Open to opportunities'
@@ -51,7 +43,7 @@ export interface ExperienceItem {
   endDate?: string
   description: string
   responsibilities: string[]
-  achievements: string[]
+  achievements?: string[]
   technologies: string[]
 }
 
@@ -127,7 +119,7 @@ export interface Resume {
   skills: SkillGroup[]
   education: EducationItem[]
   certifications: CertificationItem[]
-  achievements: AchievementItem[]
+  achievements?: AchievementItem[]
   languages: LanguageItem[]
   contact: Contact
   socialLinks: SocialLink[]

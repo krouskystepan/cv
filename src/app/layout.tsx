@@ -1,30 +1,30 @@
-import type { Viewport } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
-import { ThemeProvider } from "@/components/theme-provider";
-import { getRequestLocale } from "@/i18n/get-request-locale";
-import "./globals.css";
+import type { Viewport } from 'next'
+import { Geist, Geist_Mono } from 'next/font/google'
+import { ThemeProvider } from '@/components/theme-provider'
+import { getRequestLocale } from '@/i18n/get-request-locale'
+import './globals.css'
 
 const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin", "latin-ext"],
-});
+  variable: '--font-geist-sans',
+  subsets: ['latin', 'latin-ext'],
+})
 
 const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin", "latin-ext"],
-});
+  variable: '--font-geist-mono',
+  subsets: ['latin', 'latin-ext'],
+})
 
 export const viewport: Viewport = {
-  width: "device-width",
+  width: 'device-width',
   initialScale: 1,
-};
+}
 
 export default async function RootLayout({
   children,
 }: Readonly<{
-  children: React.ReactNode;
+  children: React.ReactNode
 }>) {
-  const locale = await getRequestLocale();
+  const locale = await getRequestLocale()
 
   return (
     <html
@@ -44,5 +44,5 @@ export default async function RootLayout({
         </ThemeProvider>
       </body>
     </html>
-  );
+  )
 }

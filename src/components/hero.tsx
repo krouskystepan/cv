@@ -1,30 +1,33 @@
-import Link from "next/link";
-import { Code2, Globe, Link as LinkIcon, Mail, MapPin } from "lucide-react";
-import { AvailabilityDot } from "@/components/availability-dot";
-import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
-import { DownloadPdfButton } from "@/components/download-pdf-button";
-import type { Locale } from "@/i18n/config";
-import { getDictionary } from "@/i18n/get-dictionary";
+import Link from 'next/link'
+import { Code2, Globe, Link as LinkIcon, Mail, MapPin } from 'lucide-react'
+import { AvailabilityDot } from '@/components/availability-dot'
+import { Badge } from '@/components/ui/badge'
+import { Button } from '@/components/ui/button'
+import { DownloadPdfButton } from '@/components/download-pdf-button'
+import type { Locale } from '@/i18n/config'
+import { getDictionary } from '@/i18n/get-dictionary'
 import {
   calculateYearsOfExperience,
   getCurrentPosition,
   getFullName,
   getResume,
-} from "@/lib/resume";
-import { formatYearsExperience } from "@/lib/utils";
+} from '@/lib/resume'
+import { formatYearsExperience } from '@/lib/utils'
 
 export function Hero({ locale }: { locale: Locale }) {
-  const resume = getResume(locale);
-  const dictionary = getDictionary(locale);
-  const years = calculateYearsOfExperience(resume);
-  const currentPosition = getCurrentPosition(resume);
-  const github = resume.socialLinks.find((l) => l.platform === "GitHub");
-  const linkedin = resume.socialLinks.find((l) => l.platform === "LinkedIn");
-  const portfolio = resume.socialLinks.find((l) => l.platform === "Portfolio");
+  const resume = getResume(locale)
+  const dictionary = getDictionary(locale)
+  const years = calculateYearsOfExperience(resume)
+  const currentPosition = getCurrentPosition(resume)
+  const github = resume.socialLinks.find((l) => l.platform === 'GitHub')
+  const linkedin = resume.socialLinks.find((l) => l.platform === 'LinkedIn')
+  const portfolio = resume.socialLinks.find((l) => l.platform === 'Portfolio')
 
   return (
-    <header id="home" className="scroll-mt-20 pb-6 pt-6 sm:pb-8 sm:pt-8 md:pt-12">
+    <header
+      id="home"
+      className="scroll-mt-20 pb-6 pt-6 sm:pb-8 sm:pt-8 md:pt-12"
+    >
       <p className="mb-3 flex items-center gap-1.5 text-sm text-muted-foreground sm:mb-4 sm:text-base">
         <MapPin className="h-3.5 w-3.5 shrink-0" aria-hidden />
         {resume.profile.location}
@@ -76,11 +79,9 @@ export function Hero({ locale }: { locale: Locale }) {
         <Badge variant="secondary">
           {formatYearsExperience(years, locale)}
         </Badge>
-        {currentPosition && (
-          <Badge variant="outline">{currentPosition}</Badge>
-        )}
+        {currentPosition && <Badge variant="outline">{currentPosition}</Badge>}
         <Badge variant="outline" className="gap-2">
-          {resume.profile.availability !== "Not looking" && <AvailabilityDot />}
+          {resume.profile.availability !== 'Not looking' && <AvailabilityDot />}
           {dictionary.availability[resume.profile.availability]}
         </Badge>
         {resume.profile.drivingLicense && (
@@ -90,5 +91,5 @@ export function Hero({ locale }: { locale: Locale }) {
         )}
       </div>
     </header>
-  );
+  )
 }

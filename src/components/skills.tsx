@@ -9,14 +9,14 @@ import {
   TestTube2,
   Wrench,
   type LucideIcon,
-} from "lucide-react";
-import { Section } from "@/components/section";
-import type { Locale } from "@/i18n/config";
-import { getDictionary } from "@/i18n/get-dictionary";
-import { getResume } from "@/lib/resume";
-import type { SkillGroup } from "@/types/resume";
+} from 'lucide-react'
+import { Section } from '@/components/section'
+import type { Locale } from '@/i18n/config'
+import { getDictionary } from '@/i18n/get-dictionary'
+import { getResume } from '@/lib/resume'
+import type { SkillGroup } from '@/types/resume'
 
-const categoryIcons: Record<SkillGroup["category"], LucideIcon> = {
+const categoryIcons: Record<SkillGroup['category'], LucideIcon> = {
   Frontend: Layout,
   Backend: Server,
   Databases: Database,
@@ -26,17 +26,17 @@ const categoryIcons: Record<SkillGroup["category"], LucideIcon> = {
   Testing: TestTube2,
   Languages: Code2,
   Tools: Wrench,
-};
+}
 
 export function Skills({ locale }: { locale: Locale }) {
-  const resume = getResume(locale);
-  const dictionary = getDictionary(locale);
+  const resume = getResume(locale)
+  const dictionary = getDictionary(locale)
 
   return (
     <Section id="skills" title={dictionary.sections.skills}>
       <div className="divide-y divide-border rounded-lg border border-border bg-card">
         {resume.skills.map((group) => {
-          const Icon = categoryIcons[group.category] ?? Code2;
+          const Icon = categoryIcons[group.category] ?? Code2
 
           return (
             <div
@@ -60,9 +60,9 @@ export function Skills({ locale }: { locale: Locale }) {
                 ))}
               </div>
             </div>
-          );
+          )
         })}
       </div>
     </Section>
-  );
+  )
 }

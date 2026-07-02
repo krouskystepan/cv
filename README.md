@@ -19,21 +19,21 @@ The guide covers project structure, how data flows through the app, where to edi
 
 ### Where to edit what
 
-| I want to… | Edit |
-|------------|------|
-| Change jobs, projects, skills, contact info | `src/data/resume.ts` and `src/data/resume-cs.ts` |
-| Change button text, nav labels, section titles | `src/i18n/dictionaries/en.ts` and `cs.ts` |
-| Change layout or add a UI section | `src/components/` and `src/app/[locale]/page.tsx` |
-| Change site URL or SEO keywords | `metadata` in both resume data files |
+| I want to…                                     | Edit                                              |
+| ---------------------------------------------- | ------------------------------------------------- |
+| Change jobs, projects, skills, contact info    | `src/data/resume.ts` and `src/data/resume-cs.ts`  |
+| Change button text, nav labels, section titles | `src/i18n/dictionaries/en.ts` and `cs.ts`         |
+| Change layout or add a UI section              | `src/components/` and `src/app/[locale]/page.tsx` |
+| Change site URL or SEO keywords                | `metadata` in both resume data files              |
 
 ## Scripts
 
-| Command | Description |
-|---------|-------------|
-| `pnpm dev` | Development server |
-| `pnpm build` | Production build |
+| Command      | Description            |
+| ------------ | ---------------------- |
+| `pnpm dev`   | Development server     |
+| `pnpm build` | Production build       |
 | `pnpm start` | Serve production build |
-| `pnpm lint` | Run ESLint |
+| `pnpm lint`  | Run ESLint             |
 
 ## Locales
 

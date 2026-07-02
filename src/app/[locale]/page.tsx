@@ -1,18 +1,18 @@
-import { Navbar } from "@/components/navbar";
-import { Hero } from "@/components/hero";
-import { Summary } from "@/components/summary";
-import { Experience } from "@/components/experience";
-import { Projects } from "@/components/projects";
-import { Skills } from "@/components/skills";
-import { Education } from "@/components/education";
-import { Certifications } from "@/components/certifications";
-import { Languages } from "@/components/languages";
-import { Contact } from "@/components/contact";
-import { Footer } from "@/components/footer";
-import { getRequestLocale } from "@/i18n/get-request-locale";
+import { Navbar } from '@/components/navbar'
+import { Hero } from '@/components/hero'
+import { Summary } from '@/components/summary'
+import { Experience } from '@/components/experience'
+import { Projects } from '@/components/projects'
+import { Skills } from '@/components/skills'
+import { Education } from '@/components/education'
+import { Certifications } from '@/components/certifications'
+import { Languages } from '@/components/languages'
+import { Contact } from '@/components/contact'
+import { Footer } from '@/components/footer'
+import { getRequestLocale } from '@/i18n/get-request-locale'
 
 export default async function HomePage() {
-  const locale = await getRequestLocale();
+  const locale = await getRequestLocale()
 
   return (
     <>
@@ -32,5 +32,5 @@ export default async function HomePage() {
         <Footer locale={locale} />
       </main>
     </>
-  );
+  )
 }

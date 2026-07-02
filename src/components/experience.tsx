@@ -1,13 +1,13 @@
-import { Badge } from "@/components/ui/badge";
-import { Section } from "@/components/section";
-import type { Locale } from "@/i18n/config";
-import { getDictionary } from "@/i18n/get-dictionary";
-import { getResume } from "@/lib/resume";
-import { formatDateRange } from "@/lib/utils";
+import { Badge } from '@/components/ui/badge'
+import { Section } from '@/components/section'
+import type { Locale } from '@/i18n/config'
+import { getDictionary } from '@/i18n/get-dictionary'
+import { getResume } from '@/lib/resume'
+import { formatDateRange } from '@/lib/utils'
 
 export function Experience({ locale }: { locale: Locale }) {
-  const resume = getResume(locale);
-  const dictionary = getDictionary(locale);
+  const resume = getResume(locale)
+  const dictionary = getDictionary(locale)
 
   return (
     <Section id="experience" title={dictionary.sections.experience}>
@@ -34,7 +34,7 @@ export function Experience({ locale }: { locale: Locale }) {
                   {item.company}
                   {item.location && (
                     <span className="text-muted-foreground">
-                      {" "}
+                      {' '}
                       · {item.location}
                     </span>
                   )}
@@ -70,7 +70,7 @@ export function Experience({ locale }: { locale: Locale }) {
               </div>
             )}
 
-            {item.achievements.length > 0 && (
+            {item.achievements && item.achievements.length > 0 && (
               <div className="mt-4">
                 <h4 className="mb-2 text-sm font-medium uppercase tracking-wide text-muted-foreground">
                   {dictionary.common.achievements}
@@ -97,5 +97,5 @@ export function Experience({ locale }: { locale: Locale }) {
         ))}
       </ol>
     </Section>
-  );
+  )
 }

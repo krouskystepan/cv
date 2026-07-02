@@ -1,11 +1,11 @@
-import { Section } from "@/components/section";
-import type { Locale } from "@/i18n/config";
-import { getDictionary } from "@/i18n/get-dictionary";
-import { getResume } from "@/lib/resume";
+import { Section } from '@/components/section'
+import type { Locale } from '@/i18n/config'
+import { getDictionary } from '@/i18n/get-dictionary'
+import { getResume } from '@/lib/resume'
 
 export function Summary({ locale }: { locale: Locale }) {
-  const resume = getResume(locale);
-  const dictionary = getDictionary(locale);
+  const resume = getResume(locale)
+  const dictionary = getDictionary(locale)
 
   return (
     <Section id="summary" title={dictionary.sections.summary}>
@@ -13,5 +13,5 @@ export function Summary({ locale }: { locale: Locale }) {
         {resume.summary}
       </p>
     </Section>
-  );
+  )
 }

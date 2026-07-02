@@ -1,10 +1,10 @@
-import { cn } from "@/lib/utils";
+import { cn } from '@/lib/utils'
 
 interface SectionProps {
-  id: string;
-  title: string;
-  children: React.ReactNode;
-  className?: string;
+  id: string
+  title: string
+  children: React.ReactNode
+  className?: string
 }
 
 export function Section({ id, title, children, className }: SectionProps) {
@@ -12,7 +12,7 @@ export function Section({ id, title, children, className }: SectionProps) {
     <section
       id={id}
       aria-labelledby={`${id}-heading`}
-      className={cn("scroll-mt-20", className)}
+      className={cn('scroll-mt-20', className)}
     >
       <div className="mb-5 flex items-center gap-3 sm:mb-6">
         <span
@@ -28,5 +28,5 @@ export function Section({ id, title, children, className }: SectionProps) {
       </div>
       {children}
     </section>
-  );
+  )
 }

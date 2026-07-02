@@ -1,10 +1,10 @@
-"use client";
+'use client'
 
-import { QRCodeSVG } from "qrcode.react";
-import { useLocale } from "@/components/locale-provider";
+import { QRCodeSVG } from 'qrcode.react'
+import { useLocale } from '@/components/locale-provider'
 
 export function QrCode() {
-  const { dictionary, resume } = useLocale();
+  const { dictionary, resume } = useLocale()
 
   return (
     <div className="no-print flex max-w-32 flex-col items-center gap-2 rounded-lg border border-border bg-card p-4 shadow-sm">
@@ -21,5 +21,5 @@ export function QrCode() {
         {dictionary.common.scanToView}
       </p>
     </div>
-  );
+  )
 }

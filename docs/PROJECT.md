@@ -8,10 +8,10 @@ The site is a bilingual (English / Czech) resume and portfolio built with **Next
 
 **Two kinds of text exist in the project:**
 
-| Kind | Where it lives | Example |
-|------|----------------|---------|
-| Resume content | `src/data/resume.ts`, `src/data/resume-cs.ts` | Job titles, bullet points, project descriptions |
-| UI labels | `src/i18n/dictionaries/en.ts`, `src/i18n/dictionaries/cs.ts` | "Download PDF", "Present", section headings |
+| Kind           | Where it lives                                               | Example                                         |
+| -------------- | ------------------------------------------------------------ | ----------------------------------------------- |
+| Resume content | `src/data/resume.ts`, `src/data/resume-cs.ts`                | Job titles, bullet points, project descriptions |
+| UI labels      | `src/i18n/dictionaries/en.ts`, `src/i18n/dictionaries/cs.ts` | "Download PDF", "Present", section headings     |
 
 Resume content is fully translated per locale. UI labels are shared infrastructure so buttons, nav items, and aria text stay consistent.
 
@@ -90,11 +90,11 @@ If you add a field with the wrong type, miss a required field, or use an invalid
 
 ### Schema and types
 
-| File | Purpose |
-|------|---------|
-| `src/types/resume.ts` | TypeScript interfaces (`Resume`, `ExperienceItem`, etc.) |
-| `src/lib/resume-schema.ts` | Zod schema - must stay in sync with types |
-| `src/data/index.ts` | Maps locale → resume data via `getResumeData(locale)` |
+| File                       | Purpose                                                  |
+| -------------------------- | -------------------------------------------------------- |
+| `src/types/resume.ts`      | TypeScript interfaces (`Resume`, `ExperienceItem`, etc.) |
+| `src/lib/resume-schema.ts` | Zod schema - must stay in sync with types                |
+| `src/data/index.ts`        | Maps locale → resume data via `getResumeData(locale)`    |
 
 When adding a new field to the resume, update **all three**: the type, the Zod schema, and both resume data files.
 
@@ -161,8 +161,8 @@ Most sections follow the same pattern (see `src/components/experience.tsx`):
 
 ```tsx
 export function Experience({ locale }: { locale: Locale }) {
-  const resume = getResume(locale);
-  const dictionary = getDictionary(locale);
+  const resume = getResume(locale)
+  const dictionary = getDictionary(locale)
   // render resume data + dictionary labels
 }
 ```
@@ -221,12 +221,12 @@ Returns a PDF file with `Content-Disposition: attachment`. Cached with `no-store
 
 ## SEO and metadata
 
-| File | Role |
-|------|------|
-| `src/lib/seo.ts` | Page title, description, Open Graph, canonical URLs |
+| File                 | Role                                                 |
+| -------------------- | ---------------------------------------------------- |
+| `src/lib/seo.ts`     | Page title, description, Open Graph, canonical URLs  |
 | `src/lib/json-ld.ts` | Structured `Person` schema injected in locale layout |
-| `src/app/sitemap.ts` | Sitemap entries for `/en` and `/cs` |
-| `src/app/robots.ts` | Robots.txt rules |
+| `src/app/sitemap.ts` | Sitemap entries for `/en` and `/cs`                  |
+| `src/app/robots.ts`  | Robots.txt rules                                     |
 
 SEO pulls from `resume.metadata.canonicalUrl`, `resume.metadata.keywords`, and `resume.metadata.lastUpdated`. Update `canonicalUrl` in both resume files when deploying to production.
 

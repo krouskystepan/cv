@@ -8,7 +8,7 @@ export const resumeCs: Resume = resumeSchema.parse({
     title: 'QA Automation Engineer | Full Stack Web Developer',
     location: 'Turnov, Česká republika',
     drivingLicense: 'Skupina B',
-    availability: 'Open to opportunities'
+    availability: 'Open to opportunities',
   },
 
   summary:
@@ -30,10 +30,10 @@ export const resumeCs: Resume = resumeSchema.parse({
         'Spouštěl a monitoroval automatizované testovací kampaně na lokálních i vzdálených testovacích benchích',
         'Analyzoval výsledky testů, zkoumal logy a hlásil chyby přes Jira ve spolupráci s mezinárodními QA a vývojovými týmy',
         'Spravoval testovací automatizaci, pull requesty a peer review přes GitHub',
-        'Konfiguroval testovací prostředí a udržoval UI automační prvky pomocí PLATIN, TestHub a UIAutomatorViewer'
+        'Konfiguroval testovací prostředí a udržoval UI automační prvky pomocí PLATIN, TestHub a UIAutomatorViewer',
       ],
       achievements: [
-        'Podílel se na týmové testovací automatizaci zahrnující 300+ automatizovaných testovacích případů napříč 4 projekty CARIAD'
+        'Podílel se na týmové testovací automatizaci zahrnující 300+ automatizovaných testovacích případů napříč 4 projekty CARIAD',
       ],
       technologies: [
         'Python',
@@ -43,8 +43,8 @@ export const resumeCs: Resume = resumeSchema.parse({
         'GitHub',
         'Software Testing',
         'Codebeamer',
-        'CARIAD'
-      ]
+        'CARIAD',
+      ],
     },
     {
       id: 'exp-2',
@@ -59,13 +59,13 @@ export const resumeCs: Resume = resumeSchema.parse({
       responsibilities: [
         'Navrhl, vyvinul a nasadil veřejný firemní web',
         'Vytvořil interní softwarové nástroje podporující každodenní logistické operace',
-        'Pomáhal s každodenními IT problémy a technickou podporou'
+        'Pomáhal s každodenními IT problémy a technickou podporou',
       ],
       achievements: [
         'Navrhl, vyvinul a nasadil veřejný firemní web',
-        'Vyvinul interní business aplikace podporující logistické operace'
+        'Vyvinul interní business aplikace podporující logistické operace',
       ],
-      technologies: ['Next.js', 'Tailwind CSS', 'TypeScript', 'Node.js']
+      technologies: ['Next.js', 'Tailwind CSS', 'TypeScript', 'Node.js'],
     },
     {
       id: 'exp-3',
@@ -79,10 +79,10 @@ export const resumeCs: Resume = resumeSchema.parse({
       responsibilities: [
         'Navrhoval a dodával full-stack webové aplikace pro více klientů od požadavků až po nasazení',
         'Vytvářel responzivní frontend, REST API a databázové integrace v moderních JavaScript stacku',
-        'Jako jediný vývojář řídil rozsah projektu, termíny a komunikaci s klientem'
+        'Jako jediný vývojář řídil rozsah projektu, termíny a komunikaci s klientem',
       ],
       achievements: [
-        'Od roku 2024 dodal produkční weby a webové aplikace pro různé klienty'
+        'Od roku 2024 dodal produkční weby a webové aplikace pro různé klienty',
       ],
       technologies: [
         'Next.js',
@@ -94,8 +94,8 @@ export const resumeCs: Resume = resumeSchema.parse({
         'PostgreSQL',
         'MongoDB',
         'Git',
-        'Figma'
-      ]
+        'Figma',
+      ],
     },
     {
       id: 'exp-4',
@@ -110,13 +110,13 @@ export const resumeCs: Resume = resumeSchema.parse({
       responsibilities: [
         'Vytvořil responzivní rozhraní firemního webu v React a Material UI',
         'Implementoval znovupoužitelné UI komponenty podle designových specifikací',
-        'Přispíval k frontend vývoji v malém dodávkovém týmu'
+        'Přispíval k frontend vývoji v malém dodávkovém týmu',
       ],
       achievements: [
-        'Úspěšně absolvoval školní praxi s dodaným frontendem webu během dvouměsíčního období'
+        'Úspěšně absolvoval školní praxi s dodaným frontendem webu během dvouměsíčního období',
       ],
-      technologies: ['React', 'MUI', 'JavaScript', 'TypeScript']
-    }
+      technologies: ['React', 'MUI', 'JavaScript', 'TypeScript'],
+    },
   ],
 
   projects: [
@@ -132,11 +132,12 @@ export const resumeCs: Resume = resumeSchema.parse({
         'Discord.js',
         'TypeScript',
         'Tailwind',
-        'MongoDB'
+        'MongoDB',
       ],
       liveUrl: 'https://dc-gambling-client.vercel.app',
       githubUrl: 'https://github.com/krouskystepan/gambling-bot-discord',
-      portfolioUrl: 'https://www.krouskystepan.com/projects/discord-gambling-hub'
+      portfolioUrl:
+        'https://www.krouskystepan.com/projects/discord-gambling-hub',
     },
     {
       id: 'proj-2',
@@ -151,50 +152,58 @@ export const resumeCs: Resume = resumeSchema.parse({
         'PM2',
         'Nginx',
         'VPS',
-        'GitHub Actions'
+        'GitHub Actions',
       ],
       liveUrl: 'https://www.krouskystepan.com',
-      portfolioUrl: 'https://www.krouskystepan.com/projects/portfolio-platform'
-    }
+      portfolioUrl: 'https://www.krouskystepan.com/projects/portfolio-platform',
+    },
   ],
 
   skills: [
     {
       category: 'Languages',
-      skills: ['TypeScript', 'JavaScript', 'Python', 'Java']
+      skills: ['TypeScript', 'JavaScript', 'Python', 'Java'],
     },
     {
       category: 'Frontend',
-      skills: ['React', 'Next.js', 'Tailwind CSS', 'MUI', 'SCSS', 'HTML', 'CSS']
+      skills: [
+        'React',
+        'Next.js',
+        'Tailwind CSS',
+        'MUI',
+        'SCSS',
+        'HTML',
+        'CSS',
+      ],
     },
     {
       category: 'Backend',
-      skills: ['Node.js', 'Express.js', 'REST APIs']
+      skills: ['Node.js', 'Express.js', 'REST APIs'],
     },
     {
       category: 'Databases',
-      skills: ['MySQL', 'MariaDB', 'PostgreSQL', 'MongoDB', 'SQL']
+      skills: ['MySQL', 'MariaDB', 'PostgreSQL', 'MongoDB', 'SQL'],
     },
     {
       category: 'Testing',
-      skills: ['QA Automation', 'Jira', 'Codebeamer']
+      skills: ['QA Automation', 'Jira', 'Codebeamer'],
     },
     {
       category: 'DevOps',
-      skills: ['Git', 'GitHub', 'GitHub Actions', 'CI/CD', 'Bash']
+      skills: ['Git', 'GitHub', 'GitHub Actions', 'CI/CD', 'Bash'],
     },
     {
       category: 'Cloud',
-      skills: ['Vercel', 'Custom VPS', 'Firebase']
+      skills: ['Vercel', 'Custom VPS', 'Firebase'],
     },
     {
       category: 'Platforms',
-      skills: ['Linux', 'macOS', 'Windows']
+      skills: ['Linux', 'macOS', 'Windows'],
     },
     {
       category: 'Tools',
-      skills: ['Figma', 'VS Code', 'Postman']
-    }
+      skills: ['Figma', 'VS Code', 'Postman'],
+    },
   ],
 
   education: [
@@ -209,42 +218,40 @@ export const resumeCs: Resume = resumeSchema.parse({
       description:
         'Čtyřleté střední technické vzdělání v oboru informačních technologií, programování a vývoje software.',
       achievements: [
-        'Vyvinul maturitní projekty v oblasti webového a softwarového vývoje'
-      ]
-    }
+        'Vyvinul maturitní projekty v oblasti webového a softwarového vývoje',
+      ],
+    },
   ],
 
   certifications: [],
 
-  achievements: [],
-
   languages: [
     { language: 'Čeština', level: 'Native' },
-    { language: 'Angličtina', level: 'Professional' }
+    { language: 'Angličtina', level: 'Professional' },
   ],
 
   contact: {
     email: 'stepan.krousky@seznam.cz',
     location: 'Turnov, Česká republika',
-    website: 'https://cv.krouskystepan.com'
+    website: 'https://krouskystepan.com',
   },
 
   socialLinks: [
     {
       platform: 'GitHub',
       label: 'GitHub',
-      url: 'https://github.com/krouskystepan'
+      url: 'https://github.com/krouskystepan',
     },
     {
       platform: 'LinkedIn',
       label: 'LinkedIn',
-      url: 'https://www.linkedin.com/in/krouskystepan'
+      url: 'https://www.linkedin.com/in/krouskystepan',
     },
     {
       platform: 'Portfolio',
       label: 'Portfolio',
-      url: 'https://www.krouskystepan.com'
-    }
+      url: 'https://www.krouskystepan.com',
+    },
   ],
 
   metadata: {
@@ -262,7 +269,7 @@ export const resumeCs: Resume = resumeSchema.parse({
       'Next.js',
       'TypeScript',
       'Turnov',
-      'Czech Republic'
-    ]
-  }
+      'Czech Republic',
+    ],
+  },
 })

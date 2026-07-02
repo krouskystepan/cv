@@ -5,7 +5,7 @@ const employmentTypeSchema = z.enum([
   'Part-time',
   'Contract',
   'Freelance',
-  'Internship'
+  'Internship',
 ])
 
 const languageLevelSchema = z.enum([
@@ -13,14 +13,14 @@ const languageLevelSchema = z.enum([
   'Fluent',
   'Professional',
   'Intermediate',
-  'Basic'
+  'Basic',
 ])
 
 const availabilitySchema = z.enum([
   'Open to opportunities',
   'Actively looking',
   'Not looking',
-  'Freelance available'
+  'Freelance available',
 ])
 
 export const resumeSchema = z.object({
@@ -32,7 +32,7 @@ export const resumeSchema = z.object({
     birthDate: z.string().optional(),
     avatar: z.string().url().optional(),
     drivingLicense: z.string().optional(),
-    availability: availabilitySchema
+    availability: availabilitySchema,
   }),
   summary: z.string().min(1),
   experience: z.array(
@@ -46,9 +46,9 @@ export const resumeSchema = z.object({
       endDate: z.string().optional(),
       description: z.string(),
       responsibilities: z.array(z.string()),
-      achievements: z.array(z.string()),
-      technologies: z.array(z.string())
-    })
+      achievements: z.array(z.string()).optional(),
+      technologies: z.array(z.string()),
+    }),
   ),
   projects: z.array(
     z.object({
@@ -59,8 +59,8 @@ export const resumeSchema = z.object({
       technologies: z.array(z.string()),
       liveUrl: z.string().url().optional(),
       githubUrl: z.string().url().optional(),
-      portfolioUrl: z.string().url().optional()
-    })
+      portfolioUrl: z.string().url().optional(),
+    }),
   ),
   skills: z.array(
     z.object({
@@ -73,10 +73,10 @@ export const resumeSchema = z.object({
         'Platforms',
         'Testing',
         'Languages',
-        'Tools'
+        'Tools',
       ]),
-      skills: z.array(z.string())
-    })
+      skills: z.array(z.string()),
+    }),
   ),
   education: z.array(
     z.object({
@@ -88,8 +88,8 @@ export const resumeSchema = z.object({
       startDate: z.string(),
       endDate: z.string().optional(),
       description: z.string().optional(),
-      achievements: z.array(z.string()).optional()
-    })
+      achievements: z.array(z.string()).optional(),
+    }),
   ),
   certifications: z.array(
     z.object({
@@ -97,41 +97,43 @@ export const resumeSchema = z.object({
       title: z.string(),
       issuer: z.string(),
       date: z.string(),
-      credentialUrl: z.string().url().optional()
-    })
+      credentialUrl: z.string().url().optional(),
+    }),
   ),
-  achievements: z.array(
-    z.object({
-      id: z.string(),
-      title: z.string(),
-      description: z.string(),
-      date: z.string().optional()
-    })
-  ),
+  achievements: z
+    .array(
+      z.object({
+        id: z.string(),
+        title: z.string(),
+        description: z.string(),
+        date: z.string().optional(),
+      }),
+    )
+    .optional(),
   languages: z.array(
     z.object({
       language: z.string(),
-      level: languageLevelSchema
-    })
+      level: languageLevelSchema,
+    }),
   ),
   contact: z.object({
     email: z.string().email(),
     location: z.string(),
-    website: z.string().url()
+    website: z.string().url(),
   }),
   socialLinks: z.array(
     z.object({
       platform: z.enum(['GitHub', 'LinkedIn', 'Twitter', 'Portfolio', 'Other']),
       label: z.string(),
-      url: z.string().url()
-    })
+      url: z.string().url(),
+    }),
   ),
   metadata: z.object({
     canonicalUrl: z.string().url(),
     lastUpdated: z.string(),
     locale: z.string(),
-    keywords: z.array(z.string())
-  })
+    keywords: z.array(z.string()),
+  }),
 })
 
 export type ResumeSchema = z.infer<typeof resumeSchema>

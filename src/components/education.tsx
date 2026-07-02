@@ -1,12 +1,12 @@
-import { Section } from "@/components/section";
-import type { Locale } from "@/i18n/config";
-import { getDictionary } from "@/i18n/get-dictionary";
-import { getResume } from "@/lib/resume";
-import { formatYearRange } from "@/lib/utils";
+import { Section } from '@/components/section'
+import type { Locale } from '@/i18n/config'
+import { getDictionary } from '@/i18n/get-dictionary'
+import { getResume } from '@/lib/resume'
+import { formatYearRange } from '@/lib/utils'
 
 export function Education({ locale }: { locale: Locale }) {
-  const resume = getResume(locale);
-  const dictionary = getDictionary(locale);
+  const resume = getResume(locale)
+  const dictionary = getDictionary(locale)
 
   return (
     <Section id="education" title={dictionary.sections.education}>
@@ -33,12 +33,14 @@ export function Education({ locale }: { locale: Locale }) {
                   {item.institution}
                   {item.location && (
                     <span className="font-normal text-muted-foreground">
-                      {" "}
+                      {' '}
                       · {item.location}
                     </span>
                   )}
                 </p>
-                <p className="text-sm text-foreground/75 sm:text-base">{item.field}</p>
+                <p className="text-sm text-foreground/75 sm:text-base">
+                  {item.field}
+                </p>
               </div>
               <time
                 className="mt-1 shrink-0 text-sm text-muted-foreground sm:mt-0 sm:text-base"
@@ -68,5 +70,5 @@ export function Education({ locale }: { locale: Locale }) {
         ))}
       </ol>
     </Section>
-  );
+  )
 }

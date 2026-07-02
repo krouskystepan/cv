@@ -1,13 +1,13 @@
-"use client";
+'use client'
 
-import type { ElementType, ReactNode } from "react";
-import Link from "next/link";
-import { Code2, Globe, Link as LinkIcon, Mail, MapPin } from "lucide-react";
-import { CopyButton } from "@/components/copy-button";
-import { QrCode } from "@/components/qr-code";
-import { Section } from "@/components/section";
-import { useLocale } from "@/components/locale-provider";
-import { getSocialLink } from "@/lib/resume";
+import type { ElementType, ReactNode } from 'react'
+import Link from 'next/link'
+import { Code2, Globe, Link as LinkIcon, Mail, MapPin } from 'lucide-react'
+import { CopyButton } from '@/components/copy-button'
+import { QrCode } from '@/components/qr-code'
+import { Section } from '@/components/section'
+import { useLocale } from '@/components/locale-provider'
+import { getSocialLink } from '@/lib/resume'
 
 function ContactRow({
   icon: Icon,
@@ -16,11 +16,11 @@ function ContactRow({
   copyValue,
   copyLabel,
 }: {
-  icon: ElementType;
-  label: string;
-  children: ReactNode;
-  copyValue?: string;
-  copyLabel?: string;
+  icon: ElementType
+  label: string
+  children: ReactNode
+  copyValue?: string
+  copyLabel?: string
 }) {
   return (
     <div className="flex items-center gap-3 px-4 py-3">
@@ -31,7 +31,9 @@ function ContactRow({
         <p className="text-xs font-medium uppercase tracking-wide text-muted-foreground sm:text-sm">
           {label}
         </p>
-        <div className="text-sm font-medium break-all text-foreground sm:text-base">{children}</div>
+        <div className="text-sm font-medium break-all text-foreground sm:text-base">
+          {children}
+        </div>
       </div>
       {copyValue && copyLabel && (
         <CopyButton
@@ -42,13 +44,13 @@ function ContactRow({
         />
       )}
     </div>
-  );
+  )
 }
 
 export function Contact() {
-  const { dictionary, resume } = useLocale();
-  const github = getSocialLink("GitHub", resume);
-  const linkedin = getSocialLink("LinkedIn", resume);
+  const { dictionary, resume } = useLocale()
+  const github = getSocialLink('GitHub', resume)
+  const linkedin = getSocialLink('LinkedIn', resume)
 
   return (
     <Section id="contact" title={dictionary.sections.contact}>
@@ -84,19 +86,24 @@ export function Contact() {
               rel="noopener noreferrer"
               className="hover:text-highlight hover:underline"
             >
-              {resume.contact.website.replace(/^https?:\/\//, "")}
+              {resume.contact.website.replace(/^https?:\/\//, '')}
             </Link>
           </ContactRow>
 
           {github && (
-            <ContactRow label="GitHub" icon={Code2} copyValue={github} copyLabel="GitHub">
+            <ContactRow
+              label="GitHub"
+              icon={Code2}
+              copyValue={github}
+              copyLabel="GitHub"
+            >
               <Link
                 href={github}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="hover:text-highlight hover:underline"
               >
-                {github.replace(/^https?:\/\/(www\.)?/, "")}
+                {github.replace(/^https?:\/\/(www\.)?/, '')}
               </Link>
             </ContactRow>
           )}
@@ -114,7 +121,7 @@ export function Contact() {
                 rel="noopener noreferrer"
                 className="hover:text-highlight hover:underline"
               >
-                {linkedin.replace(/^https?:\/\/(www\.)?/, "")}
+                {linkedin.replace(/^https?:\/\/(www\.)?/, '')}
               </Link>
             </ContactRow>
           )}
@@ -125,5 +132,5 @@ export function Contact() {
         </div>
       </div>
     </Section>
-  );
+  )
 }

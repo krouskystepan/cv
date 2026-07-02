@@ -3,11 +3,11 @@ import {
   Page,
   Text,
   View,
-  Image,
+  Image as PdfImage,
   StyleSheet,
-} from "@react-pdf/renderer";
-import type { Locale } from "@/i18n/config";
-import { getDictionary } from "@/i18n/get-dictionary";
+} from '@react-pdf/renderer'
+import type { Locale } from '@/i18n/config'
+import { getDictionary } from '@/i18n/get-dictionary'
 import {
   getCondensedSkillLines,
   getContactLine,
@@ -17,19 +17,23 @@ import {
   getLanguagesLine,
   getLinksLine,
   getPrintProjects,
-} from "@/lib/resume-print";
+} from '@/lib/resume-print'
 import {
   calculateYearsOfExperience,
   getFullName,
   getResume,
-} from "@/lib/resume";
-import { formatDateRange, formatYearsExperience, formatYearRange } from "@/lib/utils";
-import { PDF_FONT } from "@/lib/pdf/fonts";
+} from '@/lib/resume'
+import {
+  formatDateRange,
+  formatYearsExperience,
+  formatYearRange,
+} from '@/lib/utils'
+import { PDF_FONT } from '@/lib/pdf/fonts'
 
-const black = "#000000";
-const bodyColor = "#1a1a1a";
-const secondary = "#3d3d3d";
-const muted = "#5c5c5c";
+const black = '#000000'
+const bodyColor = '#1a1a1a'
+const secondary = '#3d3d3d'
+const muted = '#5c5c5c'
 
 const styles = StyleSheet.create({
   page: {
@@ -48,9 +52,9 @@ const styles = StyleSheet.create({
     borderBottomColor: black,
   },
   headerRow: {
-    flexDirection: "row",
-    justifyContent: "space-between",
-    alignItems: "flex-start",
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'flex-start',
     gap: 12,
   },
   headerMain: {
@@ -59,7 +63,7 @@ const styles = StyleSheet.create({
   },
   qrContainer: {
     flexShrink: 0,
-    alignItems: "center",
+    alignItems: 'center',
     gap: 2,
   },
   qrImage: {
@@ -70,7 +74,7 @@ const styles = StyleSheet.create({
     fontSize: 6,
     lineHeight: 1.2,
     color: muted,
-    textAlign: "center",
+    textAlign: 'center',
     maxWidth: 54,
   },
   name: {
@@ -101,13 +105,13 @@ const styles = StyleSheet.create({
     fontFamily: PDF_FONT,
     fontWeight: 700,
     lineHeight: 1.2,
-    textTransform: "uppercase",
+    textTransform: 'uppercase',
     letterSpacing: 1.1,
     color: black,
     marginBottom: 3,
     paddingBottom: 2,
     borderBottomWidth: 0.5,
-    borderBottomColor: "#cccccc",
+    borderBottomColor: '#cccccc',
   },
   bodyText: {
     fontSize: 8.5,
@@ -118,9 +122,9 @@ const styles = StyleSheet.create({
     marginBottom: 4,
   },
   row: {
-    flexDirection: "row",
-    justifyContent: "space-between",
-    alignItems: "flex-start",
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'flex-start',
   },
   rowMain: {
     flex: 1,
@@ -144,11 +148,11 @@ const styles = StyleSheet.create({
     lineHeight: 1.25,
     color: muted,
     width: 88,
-    textAlign: "right",
+    textAlign: 'right',
     flexShrink: 0,
   },
   bulletRow: {
-    flexDirection: "row",
+    flexDirection: 'row',
     marginTop: 1,
   },
   bulletDot: {
@@ -181,13 +185,13 @@ const styles = StyleSheet.create({
     marginBottom: 1,
   },
   skillGrid: {
-    flexDirection: "row",
-    flexWrap: "wrap",
+    flexDirection: 'row',
+    flexWrap: 'wrap',
   },
   skillItem: {
-    width: "50%",
-    flexDirection: "row",
-    alignItems: "flex-start",
+    width: '50%',
+    flexDirection: 'row',
+    alignItems: 'flex-start',
     marginBottom: 2,
     paddingRight: 6,
   },
@@ -208,7 +212,7 @@ const styles = StyleSheet.create({
     color: bodyColor,
   },
   bottomRow: {
-    flexDirection: "row",
+    flexDirection: 'row',
   },
   bottomCol: {
     flex: 1,
@@ -235,25 +239,25 @@ const styles = StyleSheet.create({
     lineHeight: 1.25,
     color: secondary,
   },
-});
+})
 
 function Section({
   title,
   children,
 }: {
-  title: string;
-  children: React.ReactNode;
+  title: string
+  children: React.ReactNode
 }) {
   return (
     <View style={styles.section}>
       <Text style={styles.sectionTitle}>{title}</Text>
       {children}
     </View>
-  );
+  )
 }
 
 function Bullets({ items }: { items: string[] }) {
-  if (items.length === 0) return null;
+  if (items.length === 0) return null
 
   return (
     <View>
@@ -264,27 +268,27 @@ function Bullets({ items }: { items: string[] }) {
         </View>
       ))}
     </View>
-  );
+  )
 }
 
 export function ResumePdfDocument({
-  locale = "en",
+  locale = 'en',
   qrDataUrl,
 }: {
-  locale?: Locale;
-  qrDataUrl?: string;
+  locale?: Locale
+  qrDataUrl?: string
 }) {
-  const resume = getResume(locale);
-  const dictionary = getDictionary(locale);
-  const name = getFullName(resume);
-  const years = calculateYearsOfExperience(resume);
+  const resume = getResume(locale)
+  const dictionary = getDictionary(locale)
+  const name = getFullName(resume)
+  const years = calculateYearsOfExperience(resume)
 
   return (
     <Document
       title={`${name} - ${dictionary.seo.siteName}`}
       author={name}
       subject={dictionary.seo.siteName}
-      creator="cv.krouskystepan.com"
+      creator="krouskystepan.com"
     >
       <Page size="A4" style={styles.page}>
         <View style={styles.header}>
@@ -292,7 +296,7 @@ export function ResumePdfDocument({
             <View style={styles.headerMain}>
               <Text style={styles.name}>{name}</Text>
               <Text style={styles.subtitle}>
-                {resume.profile.title}  ·  {formatYearsExperience(years, locale)}
+                {resume.profile.title} · {formatYearsExperience(years, locale)}
               </Text>
               <Text style={styles.contact}>{getContactLine(resume)}</Text>
               <Text style={styles.contact}>{getLinksLine(resume)}</Text>
@@ -304,8 +308,10 @@ export function ResumePdfDocument({
             </View>
             {qrDataUrl && (
               <View style={styles.qrContainer}>
-                <Image src={qrDataUrl} style={styles.qrImage} />
-                <Text style={styles.qrLabel}>{dictionary.common.scanToView}</Text>
+                <PdfImage src={qrDataUrl} style={styles.qrImage} />
+                <Text style={styles.qrLabel}>
+                  {dictionary.common.scanToView}
+                </Text>
               </View>
             )}
           </View>
@@ -330,7 +336,7 @@ export function ResumePdfDocument({
               <Bullets items={getExperienceBullets(item)} />
               {getExperienceTech(item).length > 0 && (
                 <Text style={styles.tech}>
-                  {getExperienceTech(item).join(", ")}
+                  {getExperienceTech(item).join(', ')}
                 </Text>
               )}
             </View>
@@ -360,7 +366,9 @@ export function ResumePdfDocument({
         <View style={styles.section} wrap={false}>
           <View style={styles.bottomRow}>
             <View style={styles.bottomCol}>
-              <Text style={styles.sectionTitle}>{dictionary.print.education}</Text>
+              <Text style={styles.sectionTitle}>
+                {dictionary.print.education}
+              </Text>
               {resume.education.map((item) => (
                 <View key={item.id} style={styles.educationItem}>
                   <Text style={styles.educationTitle}>
@@ -374,12 +382,16 @@ export function ResumePdfDocument({
               ))}
             </View>
             <View style={styles.bottomColRight}>
-              <Text style={styles.sectionTitle}>{dictionary.print.languages}</Text>
-              <Text style={styles.bodyText}>{getLanguagesLine(locale, resume)}</Text>
+              <Text style={styles.sectionTitle}>
+                {dictionary.print.languages}
+              </Text>
+              <Text style={styles.bodyText}>
+                {getLanguagesLine(locale, resume)}
+              </Text>
             </View>
           </View>
         </View>
       </Page>
     </Document>
-  );
+  )
 }

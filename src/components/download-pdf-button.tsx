@@ -1,25 +1,25 @@
-"use client";
+'use client'
 
-import { Download } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { useLocale } from "@/components/locale-provider";
-import { downloadPdf } from "@/lib/pdf-client";
+import { Download } from 'lucide-react'
+import { Button } from '@/components/ui/button'
+import { useLocale } from '@/components/locale-provider'
+import { downloadPdf } from '@/lib/pdf-client'
 
 export function DownloadPdfButton({
-  variant = "default",
-  size = "default",
+  variant = 'default',
+  size = 'default',
   className,
   showLabel = true,
 }: {
-  variant?: "default" | "secondary" | "outline" | "ghost";
-  size?: "default" | "sm" | "lg" | "icon";
-  className?: string;
-  showLabel?: boolean;
+  variant?: 'default' | 'secondary' | 'outline' | 'ghost'
+  size?: 'default' | 'sm' | 'lg' | 'icon'
+  className?: string
+  showLabel?: boolean
 }) {
-  const { dictionary, locale } = useLocale();
+  const { dictionary, locale } = useLocale()
 
   function handleDownload() {
-    downloadPdf(locale);
+    downloadPdf(locale)
   }
 
   return (
@@ -33,5 +33,5 @@ export function DownloadPdfButton({
       <Download className="h-4 w-4" />
       {showLabel && dictionary.common.downloadPdf}
     </Button>
-  );
+  )
 }

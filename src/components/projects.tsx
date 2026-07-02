@@ -1,22 +1,22 @@
-import Image from "next/image";
-import Link from "next/link";
-import { ExternalLink, Code2 } from "lucide-react";
-import { Badge } from "@/components/ui/badge";
+import Image from 'next/image'
+import Link from 'next/link'
+import { ExternalLink } from 'lucide-react'
+import { Badge } from '@/components/ui/badge'
 import {
   Card,
   CardContent,
   CardDescription,
   CardHeader,
   CardTitle,
-} from "@/components/ui/card";
-import { Section } from "@/components/section";
-import type { Locale } from "@/i18n/config";
-import { getDictionary } from "@/i18n/get-dictionary";
-import { getResume } from "@/lib/resume";
+} from '@/components/ui/card'
+import { Section } from '@/components/section'
+import type { Locale } from '@/i18n/config'
+import { getDictionary } from '@/i18n/get-dictionary'
+import { getResume } from '@/lib/resume'
 
 export function Projects({ locale }: { locale: Locale }) {
-  const resume = getResume(locale);
-  const dictionary = getDictionary(locale);
+  const resume = getResume(locale)
+  const dictionary = getDictionary(locale)
 
   return (
     <Section id="projects" title={dictionary.sections.projects}>
@@ -38,7 +38,9 @@ export function Projects({ locale }: { locale: Locale }) {
               </div>
             )}
             <CardHeader className="pb-3">
-              <CardTitle className="text-base sm:text-lg">{project.title}</CardTitle>
+              <CardTitle className="text-base sm:text-lg">
+                {project.title}
+              </CardTitle>
               <CardDescription className="leading-relaxed text-foreground/75">
                 {project.description}
               </CardDescription>
@@ -51,30 +53,8 @@ export function Projects({ locale }: { locale: Locale }) {
                   </Badge>
                 ))}
               </div>
-              <div className="no-print flex flex-wrap gap-4 text-base font-medium">
-                {project.liveUrl && (
-                  <Link
-                    href={project.liveUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1.5 text-highlight hover:underline"
-                  >
-                    <ExternalLink className="h-3.5 w-3.5" />
-                    {dictionary.common.liveDemo}
-                  </Link>
-                )}
-                {project.githubUrl && (
-                  <Link
-                    href={project.githubUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1.5 text-foreground/80 hover:text-foreground hover:underline"
-                  >
-                    <Code2 className="h-3.5 w-3.5" />
-                    GitHub
-                  </Link>
-                )}
-                {project.portfolioUrl && (
+              {project.portfolioUrl && (
+                <div className="no-print text-base font-medium">
                   <Link
                     href={project.portfolioUrl}
                     target="_blank"
@@ -84,12 +64,12 @@ export function Projects({ locale }: { locale: Locale }) {
                     <ExternalLink className="h-3.5 w-3.5" />
                     {dictionary.common.portfolio}
                   </Link>
-                )}
-              </div>
+                </div>
+              )}
             </CardContent>
           </Card>
         ))}
       </div>
     </Section>
-  );
+  )
 }
