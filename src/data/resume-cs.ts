@@ -121,45 +121,40 @@ export const resumeCs: Resume = resumeSchema.parse({
 
   projects: [
     {
-      id: 'proj-3',
-      title: 'MATURITA-WAP',
+      id: 'proj-1',
+      title: 'Discord Gambling Hub',
       description:
-        'Maturitní projekt – full-stack webová aplikace s React frontendem, Node.js backendem, perzistencí dat a autentizací, realizovaná jako maturitní práce na střední škole.',
-      technologies: ['TypeScript', 'React', 'Node.js'],
-      githubUrl: 'https://github.com/krouskystepan/MATURITA-WAP'
-    },
-    {
-      id: 'proj-4',
-      title: 'AI Chatbot',
-      description:
-        'Next.js chatbot s integrací AI API, streamovanými odpověďmi a responzivním konverzačním rozhraním postaveným v TypeScript.',
-      technologies: ['Next.js', 'TypeScript', 'AI APIs'],
-      githubUrl: 'https://github.com/krouskystepan/ai_chatbot_nextjs'
+        'Modulární Discord hazardní a ekonomický systém s více kasinovými hrami, backendem virtuální měny a integrovaným Next.js administračním dashboardem pro správu hráčů a her v reálném čase.',
+      image: '/projects/discord-gambling-bot.png',
+      technologies: [
+        'Next.js',
+        'Node.js',
+        'Discord.js',
+        'TypeScript',
+        'Tailwind',
+        'MongoDB'
+      ],
+      liveUrl: 'https://dc-gambling-client.vercel.app',
+      githubUrl: 'https://github.com/krouskystepan/gambling-bot-discord',
+      portfolioUrl: 'https://www.krouskystepan.com/projects/discord-gambling-hub'
     },
     {
       id: 'proj-2',
-      title: 'Discord Bot Platform',
+      title: 'Portfolio Platform',
       description:
-        'Multiservisní Discord bot ekosystém se sdílenou TypeScript knihovnou, REST API integracemi a Next.js administračním dashboardem pro konfiguraci, monitoring a správu uživatelů.',
-      technologies: ['TypeScript', 'Node.js', 'Discord.js', 'React', 'Next.js'],
-      liveUrl: 'https://dc-gambling-client.vercel.app',
-      githubUrl: 'https://github.com/krouskystepan/gambling-bot-discord'
-    },
-    {
-      id: 'proj-1',
-      title: 'Interaktivní životopis',
-      description:
-        'Vícejazyčný životopis postavený na moderní Next.js architektuře se server-side generováním PDF, responzivním designem, optimalizací výkonu a UI zaměřeným na přístupnost.',
-      image: '/projects/portfolio.svg',
+        'Self-hosted Next.js portfolio platforma běžící na vlastním VPS se službami na subdoménách, nasazením přes GitHub Actions a lehkými interaktivními funkcemi jako achievements a interní nástroje.',
+      image: '/projects/portfolio.png',
       technologies: [
         'Next.js',
-        'React',
         'TypeScript',
-        'Tailwind CSS',
-        'i18n',
-        'PDF'
+        'Node.js',
+        'PM2',
+        'Nginx',
+        'VPS',
+        'GitHub Actions'
       ],
-      portfolioUrl: 'https://cv.krouskystepan.com'
+      liveUrl: 'https://www.krouskystepan.com',
+      portfolioUrl: 'https://www.krouskystepan.com/projects/portfolio-platform'
     }
   ],
 

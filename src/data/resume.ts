@@ -121,45 +121,40 @@ export const resume: Resume = resumeSchema.parse({
 
   projects: [
     {
-      id: 'proj-3',
-      title: 'MATURITA-WAP',
+      id: 'proj-1',
+      title: 'Discord Gambling Hub',
       description:
-        'Graduation project - full-stack web application with React frontend, Node.js backend, database persistence, and authentication, delivered as a secondary school maturita exam project.',
-      technologies: ['TypeScript', 'React', 'Node.js'],
-      githubUrl: 'https://github.com/krouskystepan/MATURITA-WAP'
-    },
-    {
-      id: 'proj-4',
-      title: 'AI Chatbot',
-      description:
-        'Next.js chatbot application with AI API integration, streaming responses, and a responsive conversational interface built with TypeScript.',
-      technologies: ['Next.js', 'TypeScript', 'AI APIs'],
-      githubUrl: 'https://github.com/krouskystepan/ai_chatbot_nextjs'
+        'A modular Discord gambling and economy system featuring multiple casino-style games, a virtual currency backend, and an integrated Next.js admin dashboard for real-time player and game management.',
+      image: '/projects/discord-gambling-bot.png',
+      technologies: [
+        'Next.js',
+        'Node.js',
+        'Discord.js',
+        'TypeScript',
+        'Tailwind',
+        'MongoDB'
+      ],
+      liveUrl: 'https://dc-gambling-client.vercel.app',
+      githubUrl: 'https://github.com/krouskystepan/gambling-bot-discord',
+      portfolioUrl: 'https://www.krouskystepan.com/projects/discord-gambling-hub'
     },
     {
       id: 'proj-2',
-      title: 'Discord Bot Platform',
+      title: 'Portfolio Platform',
       description:
-        'Multi-service Discord bot ecosystem with a shared TypeScript library, REST API integrations, and a Next.js admin dashboard for configuration, monitoring, and user management.',
-      technologies: ['TypeScript', 'Node.js', 'Discord.js', 'React', 'Next.js'],
-      liveUrl: 'https://dc-gambling-client.vercel.app',
-      githubUrl: 'https://github.com/krouskystepan/gambling-bot-discord'
-    },
-    {
-      id: 'proj-1',
-      title: 'Interactive Resume Website',
-      description:
-        'Multilingual resume website built on modern Next.js architecture with server-side PDF generation, responsive design, performance tuning, and accessibility-focused UI.',
-      image: '/projects/portfolio.svg',
+        'A self-hosted Next.js portfolio platform running on a custom VPS with subdomain-based services, GitHub Actions deployment, and lightweight interactive features such as achievements and internal tools.',
+      image: '/projects/portfolio.png',
       technologies: [
         'Next.js',
-        'React',
         'TypeScript',
-        'Tailwind CSS',
-        'i18n',
-        'PDF'
+        'Node.js',
+        'PM2',
+        'Nginx',
+        'VPS',
+        'GitHub Actions'
       ],
-      portfolioUrl: 'https://cv.krouskystepan.com'
+      liveUrl: 'https://www.krouskystepan.com',
+      portfolioUrl: 'https://www.krouskystepan.com/projects/portfolio-platform'
     }
   ],
 
