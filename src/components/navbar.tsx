@@ -63,8 +63,6 @@ export function Navbar() {
   useEffect(() => {
     if (!mobileOpen) return
 
-    document.body.style.overflow = 'hidden'
-
     function handleResize() {
       if (window.innerWidth >= 1024) {
         setMobileOpen(false)
@@ -72,10 +70,7 @@ export function Navbar() {
     }
 
     window.addEventListener('resize', handleResize)
-    return () => {
-      document.body.style.overflow = ''
-      window.removeEventListener('resize', handleResize)
-    }
+    return () => window.removeEventListener('resize', handleResize)
   }, [mobileOpen])
 
   function handlePrint() {
@@ -83,9 +78,12 @@ export function Navbar() {
   }
 
   return (
-    <header
+    <>
+      {mobileOpen && <div className="h-16 lg:hidden" aria-hidden />}
+      <header
       className={cn(
-        'no-print sticky top-0 z-50 w-full',
+        'no-print top-0 z-50 w-full',
+        mobileOpen ? 'fixed inset-x-0' : 'sticky',
         !mobileOpen &&
           'transition-[border-color,background-color,box-shadow] duration-300',
         mobileOpen
@@ -173,13 +171,11 @@ export function Navbar() {
 
       {mobileOpen && (
         <>
-          <button
-            type="button"
-            className="fixed inset-x-0 top-16 bottom-0 z-60 bg-black/45 lg:hidden dark:bg-black/45"
-            onClick={() => setMobileOpen(false)}
-            aria-label={dictionary.common.closeMenu}
+          <div
+            className="pointer-events-none fixed inset-x-0 top-16 bottom-0 z-60 bg-black/45 lg:hidden dark:bg-black/45"
+            aria-hidden
           />
-          <div className="fixed inset-x-0 top-16 z-70 max-h-[calc(100dvh-4rem)] overflow-y-auto border border-t-0 border-border bg-background px-6 py-5 shadow-lg lg:hidden dark:bg-background/90">
+          <div className="fixed inset-x-0 top-16 z-70 max-h-[calc(100dvh-4rem)] overflow-y-auto border-b border-border bg-background px-6 py-5 shadow-lg lg:hidden dark:bg-background/90">
             <ul className="flex flex-col gap-0.5">
               {navItems.map((item) => {
                 const sectionId = item.href.slice(1)
@@ -223,5 +219,6 @@ export function Navbar() {
         </>
       )}
     </header>
+    </>
   )
 }

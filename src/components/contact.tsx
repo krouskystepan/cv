@@ -23,7 +23,7 @@ function ContactRow({
   copyLabel?: string;
 }) {
   return (
-    <div className="flex flex-col gap-3 px-4 py-3 sm:flex-row sm:items-center sm:gap-3">
+    <div className="flex items-center gap-3 px-4 py-3">
       <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-md border border-border bg-accent">
         <Icon className="h-3.5 w-3.5 text-highlight" aria-hidden />
       </span>
@@ -34,7 +34,12 @@ function ContactRow({
         <div className="text-sm font-medium break-all text-foreground sm:text-base">{children}</div>
       </div>
       {copyValue && copyLabel && (
-        <CopyButton value={copyValue} label={copyLabel} className="shrink-0 self-start sm:self-center" />
+        <CopyButton
+          compact
+          value={copyValue}
+          label={copyLabel}
+          className="shrink-0"
+        />
       )}
     </div>
   );
@@ -115,7 +120,7 @@ export function Contact() {
           )}
         </div>
 
-        <div className="shrink-0 self-center sm:self-start">
+        <div className="hidden shrink-0 sm:block">
           <QrCode />
         </div>
       </div>

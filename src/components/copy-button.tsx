@@ -10,9 +10,10 @@ interface CopyButtonProps {
   value: string;
   label: string;
   className?: string;
+  compact?: boolean;
 }
 
-export function CopyButton({ value, label, className }: CopyButtonProps) {
+export function CopyButton({ value, label, className, compact = false }: CopyButtonProps) {
   const { dictionary } = useLocale();
   const [copied, setCopied] = useState(false);
 
@@ -31,18 +32,26 @@ export function CopyButton({ value, label, className }: CopyButtonProps) {
       variant="ghost"
       size="sm"
       onClick={handleCopy}
-      className={cn("no-print h-8 gap-1.5 text-muted-foreground", className)}
+      className={cn(
+        "no-print h-8 gap-1.5 text-muted-foreground",
+        compact && "w-8 px-0 sm:w-auto sm:px-3",
+        className
+      )}
       aria-label={`${dictionary.common.copy} ${label}`}
     >
       {copied ? (
         <>
           <Check className="h-3.5 w-3.5" />
-          <span className="text-sm">{dictionary.common.copied}</span>
+          <span className={cn("text-sm", compact && "hidden sm:inline")}>
+            {dictionary.common.copied}
+          </span>
         </>
       ) : (
         <>
           <Copy className="h-3.5 w-3.5" />
-          <span className="text-sm">{dictionary.common.copy}</span>
+          <span className={cn("text-sm", compact && "hidden sm:inline")}>
+            {dictionary.common.copy}
+          </span>
         </>
       )}
     </Button>
