@@ -7,12 +7,18 @@ import { Button } from '@/components/ui/button'
 import { DownloadPdfButton } from '@/components/download-pdf-button'
 import { LanguageSwitcher } from '@/components/language-switcher'
 import { ThemeToggle } from '@/components/theme-toggle'
-import { useLocale } from '@/components/locale-provider'
+import type { Locale } from '@/i18n/config'
+import type { Dictionary } from '@/i18n/types'
 import { printPdf } from '@/lib/pdf-client'
 import { cn } from '@/lib/utils'
 
-export function Navbar() {
-  const { dictionary, resume, locale } = useLocale()
+interface NavbarProps {
+  locale: Locale
+  dictionary: Dictionary
+  showCertifications: boolean
+}
+
+export function Navbar({ locale, dictionary, showCertifications }: NavbarProps) {
   const [activeSection, setActiveSection] = useState('home')
   const [mobileOpen, setMobileOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
@@ -27,11 +33,11 @@ export function Navbar() {
       {
         href: '#certifications',
         label: dictionary.nav.certifications,
-        show: () => resume.certifications.length > 0,
+        show: () => showCertifications,
       },
       { href: '#contact', label: dictionary.nav.contact },
     ],
-    [dictionary.nav, resume.certifications.length],
+    [dictionary.nav, showCertifications],
   )
 
   const navItems = useMemo(
@@ -132,6 +138,9 @@ export function Navbar() {
             <LanguageSwitcher compact />
             <div className="hidden h-5 w-px bg-border lg:block" aria-hidden />
             <DownloadPdfButton
+              locale={locale}
+              downloadPdfLabel={dictionary.common.downloadPdf}
+              downloadPdfAria={dictionary.common.downloadPdfAria}
               variant="ghost"
               size="icon"
               showLabel={false}
@@ -201,6 +210,9 @@ export function Navbar() {
               </ul>
               <div className="mt-5 hidden flex-col gap-2 border-t border-border pt-5 max-[399px]:flex">
                 <DownloadPdfButton
+                  locale={locale}
+                  downloadPdfLabel={dictionary.common.downloadPdf}
+                  downloadPdfAria={dictionary.common.downloadPdfAria}
                   variant="outline"
                   size="sm"
                   className="w-full"

@@ -2,22 +2,26 @@
 
 import { Download } from 'lucide-react'
 import { Button } from '@/components/ui/button'
-import { useLocale } from '@/components/locale-provider'
+import type { Locale } from '@/i18n/config'
 import { downloadPdf } from '@/lib/pdf-client'
 
 export function DownloadPdfButton({
+  locale,
+  downloadPdfLabel,
+  downloadPdfAria,
   variant = 'default',
   size = 'default',
   className,
   showLabel = true,
 }: {
+  locale: Locale
+  downloadPdfLabel: string
+  downloadPdfAria: string
   variant?: 'default' | 'secondary' | 'outline' | 'ghost'
   size?: 'default' | 'sm' | 'lg' | 'icon'
   className?: string
   showLabel?: boolean
 }) {
-  const { dictionary, locale } = useLocale()
-
   function handleDownload() {
     downloadPdf(locale)
   }
@@ -28,10 +32,10 @@ export function DownloadPdfButton({
       size={size}
       onClick={handleDownload}
       className={className}
-      aria-label={dictionary.common.downloadPdfAria}
+      aria-label={downloadPdfAria}
     >
       <Download className="h-4 w-4" />
-      {showLabel && dictionary.common.downloadPdf}
+      {showLabel && downloadPdfLabel}
     </Button>
   )
 }

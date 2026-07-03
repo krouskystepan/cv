@@ -3,12 +3,13 @@
 import { useState } from 'react'
 import { Check, Copy } from 'lucide-react'
 import { Button } from '@/components/ui/button'
-import { useLocale } from '@/components/locale-provider'
 import { cn } from '@/lib/utils'
 
 interface CopyButtonProps {
   value: string
   label: string
+  copyLabel: string
+  copiedLabel: string
   className?: string
   compact?: boolean
 }
@@ -16,10 +17,11 @@ interface CopyButtonProps {
 export function CopyButton({
   value,
   label,
+  copyLabel,
+  copiedLabel,
   className,
   compact = false,
 }: CopyButtonProps) {
-  const { dictionary } = useLocale()
   const [copied, setCopied] = useState(false)
 
   async function handleCopy() {
@@ -42,20 +44,20 @@ export function CopyButton({
         compact && 'w-8 px-0 sm:w-auto sm:px-3',
         className,
       )}
-      aria-label={`${dictionary.common.copy} ${label}`}
+      aria-label={`${copyLabel} ${label}`}
     >
       {copied ? (
         <>
           <Check className="h-3.5 w-3.5" />
           <span className={cn('text-sm', compact && 'hidden sm:inline')}>
-            {dictionary.common.copied}
+            {copiedLabel}
           </span>
         </>
       ) : (
         <>
           <Copy className="h-3.5 w-3.5" />
           <span className={cn('text-sm', compact && 'hidden sm:inline')}>
-            {dictionary.common.copy}
+            {copyLabel}
           </span>
         </>
       )}

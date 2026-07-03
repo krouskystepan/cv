@@ -1,7 +1,7 @@
 import type { Locale } from '@/i18n/config'
 import { getFullName, getResume } from '@/lib/resume'
 
-export function generatePersonJsonLd(locale: Locale = 'en') {
+export function generatePersonJsonLd(locale: Locale) {
   const resume = getResume(locale)
   const name = getFullName(resume)
   const sameAs = resume.socialLinks.map((link) => link.url)

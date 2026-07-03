@@ -6,7 +6,8 @@ import { Code2, Globe, Link as LinkIcon, Mail, MapPin } from 'lucide-react'
 import { CopyButton } from '@/components/copy-button'
 import { QrCode } from '@/components/qr-code'
 import { Section } from '@/components/section'
-import { useLocale } from '@/components/locale-provider'
+import type { Dictionary } from '@/i18n/types'
+import type { Resume } from '@/types/resume'
 import { getSocialLink } from '@/lib/resume'
 
 function ContactRow({
@@ -15,12 +16,14 @@ function ContactRow({
   children,
   copyValue,
   copyLabel,
+  copiedLabel,
 }: {
   icon: ElementType
   label: string
   children: ReactNode
   copyValue?: string
   copyLabel?: string
+  copiedLabel?: string
 }) {
   return (
     <div className="flex items-center gap-3 px-4 py-3">
@@ -35,11 +38,13 @@ function ContactRow({
           {children}
         </div>
       </div>
-      {copyValue && copyLabel && (
+      {copyValue && copyLabel && copiedLabel && (
         <CopyButton
           compact
           value={copyValue}
           label={copyLabel}
+          copyLabel={copyLabel}
+          copiedLabel={copiedLabel}
           className="shrink-0"
         />
       )}
@@ -47,8 +52,13 @@ function ContactRow({
   )
 }
 
-export function Contact() {
-  const { dictionary, resume } = useLocale()
+export function Contact({
+  dictionary,
+  resume,
+}: {
+  dictionary: Dictionary
+  resume: Resume
+}) {
   const github = getSocialLink('GitHub', resume)
   const linkedin = getSocialLink('LinkedIn', resume)
 
@@ -60,7 +70,8 @@ export function Contact() {
             label={dictionary.common.email}
             icon={Mail}
             copyValue={resume.contact.email}
-            copyLabel={dictionary.common.email}
+            copyLabel={dictionary.common.copy}
+            copiedLabel={dictionary.common.copied}
           >
             <a
               href={`mailto:${resume.contact.email}`}
@@ -78,7 +89,8 @@ export function Contact() {
             label={dictionary.common.website}
             icon={Globe}
             copyValue={resume.contact.website}
-            copyLabel={dictionary.common.website}
+            copyLabel={dictionary.common.copy}
+            copiedLabel={dictionary.common.copied}
           >
             <Link
               href={resume.contact.website}
@@ -95,7 +107,8 @@ export function Contact() {
               label="GitHub"
               icon={Code2}
               copyValue={github}
-              copyLabel="GitHub"
+              copyLabel={dictionary.common.copy}
+              copiedLabel={dictionary.common.copied}
             >
               <Link
                 href={github}
@@ -113,7 +126,8 @@ export function Contact() {
               label="LinkedIn"
               icon={LinkIcon}
               copyValue={linkedin}
-              copyLabel="LinkedIn"
+              copyLabel={dictionary.common.copy}
+              copiedLabel={dictionary.common.copied}
             >
               <Link
                 href={linkedin}
@@ -128,7 +142,11 @@ export function Contact() {
         </div>
 
         <div className="hidden shrink-0 sm:block">
-          <QrCode />
+          <QrCode
+            url={resume.metadata.canonicalUrl}
+            qrCodeAria={dictionary.common.qrCodeAria}
+            scanToViewLabel={dictionary.common.scanToView}
+          />
         </div>
       </div>
     </Section>

@@ -41,7 +41,7 @@ export function Projects({ locale }: { locale: Locale }) {
               <CardTitle className="text-base sm:text-lg">
                 {project.title}
               </CardTitle>
-              <CardDescription className="leading-relaxed text-foreground/75">
+              <CardDescription className="leading-relaxed">
                 {project.description}
               </CardDescription>
             </CardHeader>

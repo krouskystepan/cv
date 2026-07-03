@@ -42,7 +42,12 @@ export function Hero({ locale }: { locale: Locale }) {
       </p>
 
       <div className="no-print mt-5 flex flex-col gap-2 sm:mt-6 sm:flex-row sm:flex-wrap">
-        <DownloadPdfButton className="w-full sm:w-auto" />
+        <DownloadPdfButton
+          locale={locale}
+          downloadPdfLabel={dictionary.common.downloadPdf}
+          downloadPdfAria={dictionary.common.downloadPdfAria}
+          className="w-full sm:w-auto"
+        />
         <Button variant="outline" asChild className="w-full sm:w-auto">
           <Link href="#contact">
             <Mail className="h-4 w-4" />

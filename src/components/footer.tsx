@@ -25,10 +25,8 @@ export function Footer({ locale }: { locale: Locale }) {
           </p>
         </div>
         <div className="space-y-1 sm:text-right">
-          <p className="text-sm opacity-70">
-            <span className="hidden sm:inline">
-              {dictionary.footer.shortcuts}
-            </span>
+          <p className="hidden text-sm sm:inline">
+            {dictionary.footer.shortcuts}
           </p>
         </div>
       </div>

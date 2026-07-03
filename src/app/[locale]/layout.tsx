@@ -1,10 +1,12 @@
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
-import { LocaleProvider } from '@/components/locale-provider'
 import { KeyboardShortcuts } from '@/components/keyboard-shortcuts'
-import { isLocale, type Locale } from '@/i18n/config'
+import { locales, isLocale, type Locale } from '@/i18n/config'
 import { generateMetadata as generateResumeMetadata } from '@/lib/seo'
-import { generatePersonJsonLd } from '@/lib/json-ld'
+
+export function generateStaticParams() {
+  return locales.map((locale) => ({ locale }))
+}
 
 export async function generateMetadata({
   params,
@@ -33,18 +35,11 @@ export default async function LocaleLayout({
   }
 
   const locale = localeParam as Locale
-  const jsonLd = generatePersonJsonLd(locale)
 
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-      />
-      <LocaleProvider locale={locale}>
-        {children}
-        <KeyboardShortcuts />
-      </LocaleProvider>
+      {children}
+      <KeyboardShortcuts locale={locale} />
     </>
   )
 }

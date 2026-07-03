@@ -1,12 +1,10 @@
 'use client'
 
 import { useEffect } from 'react'
-import { useLocale } from '@/components/locale-provider'
+import type { Locale } from '@/i18n/config'
 import { downloadPdf, printPdf } from '@/lib/pdf-client'
 
-export function KeyboardShortcuts() {
-  const { locale } = useLocale()
-
+export function KeyboardShortcuts({ locale }: { locale: Locale }) {
   useEffect(() => {
     function handleKeyDown(event: KeyboardEvent) {
       const isMod = event.metaKey || event.ctrlKey
