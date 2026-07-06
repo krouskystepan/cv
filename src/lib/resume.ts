@@ -16,11 +16,14 @@ export function getCurrentYear(): number {
   return new Date().getFullYear()
 }
 
+export function getLastUpdatedDate(): string {
+  return process.env.BUILD_DATE ?? new Date().toISOString().slice(0, 10)
+}
+
 export function getLastUpdatedFormatted(
   locale: Locale = 'en',
-  resume: Resume = getResumeData(locale),
 ): string {
-  return new Date(resume.metadata.lastUpdated).toLocaleDateString(
+  return new Date(getLastUpdatedDate()).toLocaleDateString(
     dateLocales[locale],
     {
       month: 'long',

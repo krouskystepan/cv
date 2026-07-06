@@ -13,7 +13,7 @@ export const dictionary: Dictionary = {
   sections: {
     summary: 'Summary',
     experience: 'Experience',
-    projects: 'Projects',
+    projects: 'Featured Projects',
     skills: 'Skills',
     education: 'Education',
     certifications: 'Certifications',
@@ -81,7 +81,7 @@ export const dictionary: Dictionary = {
   print: {
     summary: 'Summary',
     experience: 'Experience',
-    selectedProjects: 'Projects',
+    selectedProjects: 'Featured Projects',
     skills: 'Skills',
     education: 'Education',
     languages: 'Languages',

@@ -13,7 +13,7 @@ export const dictionary: Dictionary = {
   sections: {
     summary: 'O mně',
     experience: 'Praxe',
-    projects: 'Projekty',
+    projects: 'Vybrané projekty',
     skills: 'Dovednosti',
     education: 'Vzdělání',
     certifications: 'Certifikace',
@@ -81,7 +81,7 @@ export const dictionary: Dictionary = {
   print: {
     summary: 'O mně',
     experience: 'Praxe',
-    selectedProjects: 'Projekty',
+    selectedProjects: 'Vybrané projekty',
     skills: 'Dovednosti',
     education: 'Vzdělání',
     languages: 'Jazyky',

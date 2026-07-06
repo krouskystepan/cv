@@ -130,7 +130,6 @@ export const resumeSchema = z.object({
   ),
   metadata: z.object({
     canonicalUrl: z.string().url(),
-    lastUpdated: z.string(),
     locale: z.string(),
     keywords: z.array(z.string()),
   }),

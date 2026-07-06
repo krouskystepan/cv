@@ -58,7 +58,7 @@ export const resume: Resume = resumeSchema.parse({
         'Delivered the company website on a freelance contract, then stayed on to build internal tools and help with IT when needed.',
       responsibilities: [
         "Designed, developed, and deployed the company's public-facing website",
-        'Built internal software tools supporting daily logistics operations',
+        'Built internal software tools the company continues to use',
         'Assisted with day-to-day IT issues and technical support',
       ],
       achievements: [
@@ -106,14 +106,14 @@ export const resume: Resume = resumeSchema.parse({
       startDate: '2023-07-01',
       endDate: '2023-08-31',
       description:
-        'School internship - frontend development for a company website using React and Material UI.',
+        'Started with a two-week school internship in frontend development; the collaboration worked well for both sides, so I continued over the summer holidays as a part-time developer.',
       responsibilities: [
-        'Built responsive company website interfaces with React and Material UI',
-        'Implemented reusable UI components from design specifications',
-        'Contributed to frontend development within a small delivery team',
+        'Completed a two-week school internship building the company website frontend with React and Material UI',
+        'Continued over the summer holidays as a part-time frontend developer after a successful initial collaboration',
+        'Built responsive interfaces and reusable UI components from design specifications',
       ],
       achievements: [
-        'Completed school internship with a delivered website frontend within a two-month period',
+        'Turned a short school internship into a summer part-time engagement based on mutual satisfaction with the collaboration',
       ],
       technologies: ['React', 'MUI', 'JavaScript', 'TypeScript'],
     },
@@ -256,7 +256,6 @@ export const resume: Resume = resumeSchema.parse({
 
   metadata: {
     canonicalUrl: 'https://cv.krouskystepan.com',
-    lastUpdated: '2026-07-02',
     locale: 'en_US',
     keywords: [
       'QA Automation Engineer',

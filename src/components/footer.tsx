@@ -17,7 +17,7 @@ export function Footer({ locale }: { locale: Locale }) {
         <div className="space-y-1">
           <p>
             {dictionary.footer.lastUpdated}:{' '}
-            {getLastUpdatedFormatted(locale, resume)}
+            {getLastUpdatedFormatted(locale)}
           </p>
           <p>
             © {getCurrentYear()} {getFullName(resume)}.{' '}

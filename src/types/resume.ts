@@ -106,7 +106,6 @@ export interface LanguageItem {
 
 export interface ResumeMetadata {
   canonicalUrl: string
-  lastUpdated: string
   locale: string
   keywords: string[]
 }

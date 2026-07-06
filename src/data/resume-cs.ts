@@ -58,7 +58,7 @@ export const resumeCs: Resume = resumeSchema.parse({
         'Na základě freelance kontraktu vyvinul firemní web, následně pokračoval ve vývoji interních nástrojů a IT podpoře.',
       responsibilities: [
         'Navrhl, vyvinul a nasadil veřejný firemní web',
-        'Vytvořil interní softwarové nástroje podporující každodenní logistické operace',
+        'Vytvořil interní softwarové nástroje, které firma denně používá',
         'Pomáhal s každodenními IT problémy a technickou podporou',
       ],
       achievements: [
@@ -75,7 +75,7 @@ export const resumeCs: Resume = resumeSchema.parse({
       location: 'Turnov, Liberecký kraj, Česká republika · Remote',
       startDate: '2024-01-01',
       description:
-        'Samostatný full-stack vývoj webových aplikací pro klienty – od analýzy požadavků až po nasazení do produkce.',
+        'Samostatný full-stack vývoj webových aplikací pro klienty - od analýzy požadavků až po nasazení do produkce.',
       responsibilities: [
         'Navrhoval a dodával full-stack webové aplikace pro více klientů od požadavků až po nasazení',
         'Vytvářel responzivní frontend, REST API a databázové integrace v moderních JavaScript stacku',
@@ -106,14 +106,14 @@ export const resumeCs: Resume = resumeSchema.parse({
       startDate: '2023-07-01',
       endDate: '2023-08-31',
       description:
-        'Školní praxe – frontend vývoj firemního webu v React a Material UI.',
+        'Nejprve čtrnáctidenní školní praxe ve frontend vývoji; spolupráce se oběma stranám líbila, proto jsem přes letní prázdniny pokračoval na brigádě jako frontend developer.',
       responsibilities: [
-        'Vytvořil responzivní rozhraní firemního webu v React a Material UI',
-        'Implementoval znovupoužitelné UI komponenty podle designových specifikací',
-        'Přispíval k frontend vývoji v malém dodávkovém týmu',
+        'Absolvoval čtrnáctidenní školní praxi - vývoj frontendu firemního webu v React a Material UI',
+        'Po úspěšné úvodní spolupráci pokračoval přes letní prázdniny na brigádě jako frontend developer',
+        'Vytvářel responzivní rozhraní a znovupoužitelné UI komponenty podle designových specifikací',
       ],
       achievements: [
-        'Úspěšně absolvoval školní praxi s dodaným frontendem webu během dvouměsíčního období',
+        'Krátkou školní praxi rozšířil na letní brigádu na základě vzájemné spokojenosti se spoluprací',
       ],
       technologies: ['React', 'MUI', 'JavaScript', 'TypeScript'],
     },
@@ -256,7 +256,6 @@ export const resumeCs: Resume = resumeSchema.parse({
 
   metadata: {
     canonicalUrl: 'https://cv.krouskystepan.com',
-    lastUpdated: '2026-07-02',
     locale: 'cs_CZ',
     keywords: [
       'QA Automation Engineer',
