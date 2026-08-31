@@ -47,6 +47,7 @@ export const resumeSchema = z.object({
       description: z.string(),
       responsibilities: z.array(z.string()),
       achievements: z.array(z.string()).optional(),
+      printHighlights: z.array(z.string()).optional(),
       technologies: z.array(z.string()),
     }),
   ),

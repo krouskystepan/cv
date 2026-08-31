@@ -19,11 +19,11 @@ export const resume: Resume = resumeSchema.parse({
       id: 'exp-1',
       company: 'Entry Engineering s.r.o.',
       position: 'Quality Assurance Automation Engineer',
-      employmentType: 'Full-time',
+      employmentType: 'Contract',
       location: 'Mladá Boleslav, Central Bohemia, Czech Republic · Hybrid',
       startDate: '2025-09-01',
       description:
-        'Python test automation for CARIAD automotive infotainment and connectivity across 4 projects (2 WP1, 2 WP2).',
+        'Python test automation for CARIAD automotive infotainment and connectivity across 4 projects (2 WP1, 2 WP2). After a 1-year full-time contract, I continue as a B2B contractor.',
       responsibilities: [
         'Develop and maintain automated test suites in Python for automotive infotainment and connectivity systems in CARIAD projects',
         'Design and implement Smoke, Sanity, and regression test scenarios from Codebeamer specifications',
@@ -35,13 +35,20 @@ export const resume: Resume = resumeSchema.parse({
       achievements: [
         'Contributed to a team test automation suite of 300+ automated test cases across 4 CARIAD projects',
       ],
+      printHighlights: [
+        'Python test automation for CARIAD infotainment and connectivity — 300+ automated cases across 4 projects (2 WP1, 2 WP2)',
+        'Design Smoke, Sanity, and regression tests from Codebeamer; run campaigns on local and remote benches',
+        'Analyze logs, report defects in Jira, and work with international QA and development teams',
+        'Manage test automation code, pull requests, and peer reviews on GitHub',
+        'Continued as a B2B contractor after a 1-year full-time contract',
+      ],
       technologies: [
         'Python',
+        'uv',
         'Test Automation',
         'Jira',
-        'Git',
         'GitHub',
-        'Software Testing',
+        'Git',
         'Codebeamer',
         'CARIAD',
       ],
@@ -65,6 +72,10 @@ export const resume: Resume = resumeSchema.parse({
         "Designed, developed, and deployed the company's public website",
         'Developed internal business applications supporting logistics operations',
       ],
+      printHighlights: [
+        "Designed, developed, and deployed the company's public website",
+        'Built internal logistics tools still in daily use, plus day-to-day IT support',
+      ],
       technologies: ['Next.js', 'Tailwind CSS', 'TypeScript', 'Node.js'],
     },
     {
@@ -83,6 +94,10 @@ export const resume: Resume = resumeSchema.parse({
       ],
       achievements: [
         'Delivered production websites and web applications across diverse client engagements since 2024',
+      ],
+      printHighlights: [
+        'Delivered production full-stack web apps for clients from requirements through deployment',
+        'Built responsive frontends, REST APIs, and database integrations as the sole developer',
       ],
       technologies: [
         'Next.js',
@@ -115,6 +130,9 @@ export const resume: Resume = resumeSchema.parse({
       achievements: [
         'Turned a short school internship into a summer part-time engagement based on mutual satisfaction with the collaboration',
       ],
+      printHighlights: [
+        'Built the company website frontend in React and Material UI during a school internship, then stayed on as a summer part-time developer',
+      ],
       technologies: ['React', 'MUI', 'JavaScript', 'TypeScript'],
     },
   ],
@@ -124,15 +142,20 @@ export const resume: Resume = resumeSchema.parse({
       id: 'proj-1',
       title: 'Discord Gambling Hub',
       description:
-        'A modular Discord gambling and economy system featuring multiple casino-style games, a virtual currency backend, and an integrated Next.js admin dashboard for real-time player and game management.',
+        'A multi-repo Discord casino and virtual economy platform: European roulette and interactive sessions with computed RTP, gated ATM and ledger, VIP/predictions/raffles/quests, a Next.js admin with a read-only presentation demo, and one shared TypeScript package.',
       image: '/projects/discord-gambling-bot.png',
       technologies: [
         'Next.js',
+        'TypeScript',
         'Node.js',
         'Discord.js',
-        'TypeScript',
-        'Tailwind',
         'MongoDB',
+        'Mongoose',
+        'Zod',
+        'NextAuth',
+        'Tailwind',
+        'Vitest',
+        'PM2',
       ],
       liveUrl: 'https://dc-gambling-client.vercel.app',
       githubUrl: 'https://github.com/krouskystepan/gambling-bot-discord',

@@ -19,11 +19,11 @@ export const resumeCs: Resume = resumeSchema.parse({
       id: 'exp-1',
       company: 'Entry Engineering s.r.o.',
       position: 'QA Automation Engineer',
-      employmentType: 'Full-time',
+      employmentType: 'Contract',
       location: 'Mladá Boleslav, Středočeský kraj, Česká republika · Hybrid',
       startDate: '2025-09-01',
       description:
-        'Automatizace testů v Pythonu pro CARIAD automotive infotainment a konektivitu napříč 4 projekty (2× WP1, 2× WP2).',
+        'Automatizace testů v Pythonu pro CARIAD automotive infotainment a konektivitu napříč 4 projekty (2× WP1, 2× WP2). Po roce na HPP pokračuji na B2B kontraktu (IČO).',
       responsibilities: [
         'Vyvíjel a udržoval automatizované testovací scénáře v Pythonu pro automobilové infotainment a konektivní systémy v projektech CARIAD',
         'Navrhoval a implementoval Smoke, Sanity a regresní testovací scénáře podle specifikací v Codebeamer',
@@ -35,13 +35,20 @@ export const resumeCs: Resume = resumeSchema.parse({
       achievements: [
         'Podílel se na týmové testovací automatizaci zahrnující 300+ automatizovaných testovacích případů napříč 4 projekty CARIAD',
       ],
+      printHighlights: [
+        'Automatizace testů v Pythonu pro CARIAD infotainment a konektivitu — 300+ automatizovaných případů napříč 4 projekty (2× WP1, 2× WP2)',
+        'Smoke, Sanity a regresní scénáře podle Codebeamer; kampaně na lokálních i vzdálených benchích',
+        'Analýza logů, reportování chyb v Jira a spolupráce s mezinárodními QA a vývojovými týmy',
+        'Správa testovací automatizace, pull requesty a peer review na GitHubu',
+        'Po roce na HPP pokračuji na B2B kontraktu (IČO)',
+      ],
       technologies: [
         'Python',
+        'uv',
         'Test Automation',
         'Jira',
-        'Git',
         'GitHub',
-        'Software Testing',
+        'Git',
         'Codebeamer',
         'CARIAD',
       ],
@@ -65,6 +72,10 @@ export const resumeCs: Resume = resumeSchema.parse({
         'Navrhl, vyvinul a nasadil veřejný firemní web',
         'Vyvinul interní business aplikace podporující logistické operace',
       ],
+      printHighlights: [
+        'Navrhl, vyvinul a nasadil veřejný firemní web',
+        'Vytvořil interní logistické nástroje, které firma denně používá, a zajišťoval IT podporu',
+      ],
       technologies: ['Next.js', 'Tailwind CSS', 'TypeScript', 'Node.js'],
     },
     {
@@ -83,6 +94,10 @@ export const resumeCs: Resume = resumeSchema.parse({
       ],
       achievements: [
         'Od roku 2024 dodal produkční weby a webové aplikace pro různé klienty',
+      ],
+      printHighlights: [
+        'Dodával produkční full-stack webové aplikace pro klienty od požadavků až po nasazení',
+        'Vytvářel responzivní frontend, REST API a databázové integrace jako jediný vývojář',
       ],
       technologies: [
         'Next.js',
@@ -115,6 +130,9 @@ export const resumeCs: Resume = resumeSchema.parse({
       achievements: [
         'Krátkou školní praxi rozšířil na letní brigádu na základě vzájemné spokojenosti se spoluprací',
       ],
+      printHighlights: [
+        'Vyvinul frontend firemního webu v React a Material UI během školní praxe, poté pokračoval na letní brigádě',
+      ],
       technologies: ['React', 'MUI', 'JavaScript', 'TypeScript'],
     },
   ],
@@ -124,15 +142,20 @@ export const resumeCs: Resume = resumeSchema.parse({
       id: 'proj-1',
       title: 'Discord Gambling Hub',
       description:
-        'Modulární Discord hazardní a ekonomický systém s více kasinovými hrami, backendem virtuální měny a integrovaným Next.js administračním dashboardem pro správu hráčů a her v reálném čase.',
+        'Multi-repo Discord kasino a virtuální ekonomika: evropská ruleta a interaktivní sessiony s počítaným RTP, ATM a ledger se schvalováním, VIP/predikce/raffly/questy, Next.js admin s prezentačním demem pouze pro čtení a sdílený TypeScript balíček.',
       image: '/projects/discord-gambling-bot.png',
       technologies: [
         'Next.js',
+        'TypeScript',
         'Node.js',
         'Discord.js',
-        'TypeScript',
-        'Tailwind',
         'MongoDB',
+        'Mongoose',
+        'Zod',
+        'NextAuth',
+        'Tailwind',
+        'Vitest',
+        'PM2',
       ],
       liveUrl: 'https://dc-gambling-client.vercel.app',
       githubUrl: 'https://github.com/krouskystepan/gambling-bot-discord',

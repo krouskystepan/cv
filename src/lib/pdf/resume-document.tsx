@@ -329,7 +329,11 @@ export function ResumePdfDocument({
               <View style={styles.row}>
                 <View style={styles.rowMain}>
                   <Text style={styles.position}>{item.position}</Text>
-                  <Text style={styles.company}>{item.company}</Text>
+                  <Text style={styles.company}>
+                    {item.company}
+                    {'  ·  '}
+                    {dictionary.employmentType[item.employmentType]}
+                  </Text>
                 </View>
                 <Text style={styles.date}>
                   {formatDateRange(item.startDate, item.endDate, locale)}
@@ -350,6 +354,11 @@ export function ResumePdfDocument({
             <View key={project.id} style={styles.projectItem} wrap={false}>
               <Text style={styles.projectTitle}>{project.title}</Text>
               <Text style={styles.bodyText}>{project.description}</Text>
+              {project.technologies.length > 0 && (
+                <Text style={styles.tech}>
+                  {project.technologies.slice(0, 8).join(', ')}
+                </Text>
+              )}
             </View>
           ))}
         </Section>

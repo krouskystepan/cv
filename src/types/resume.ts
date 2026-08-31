@@ -44,6 +44,8 @@ export interface ExperienceItem {
   description: string
   responsibilities: string[]
   achievements?: string[]
+  /** Curated bullets for PDF/print. Web still uses the full lists. */
+  printHighlights?: string[]
   technologies: string[]
 }
 

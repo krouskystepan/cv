@@ -10,21 +10,26 @@ import type {
 } from '@/types/resume'
 
 export const PRINT_LIMITS = {
-  experienceBullets: 2,
+  experienceBullets: 5,
   maxProjects: 2,
-  maxTechPerJob: 5,
+  maxTechPerJob: 8,
 } as const
 
 export function getExperienceBullets(item: ExperienceItem): string[] {
-  if (item.achievements && item.achievements.length > 0) {
-    return item.achievements.slice(0, PRINT_LIMITS.experienceBullets)
+  if (item.printHighlights && item.printHighlights.length > 0) {
+    return item.printHighlights
   }
 
-  if (item.description) {
-    return [item.description]
+  const merged = [
+    ...(item.achievements ?? []),
+    ...item.responsibilities,
+  ].filter((bullet, index, list) => list.indexOf(bullet) === index)
+
+  if (merged.length > 0) {
+    return merged.slice(0, PRINT_LIMITS.experienceBullets)
   }
 
-  return item.responsibilities.slice(0, PRINT_LIMITS.experienceBullets)
+  return item.description ? [item.description] : []
 }
 
 export function getExperienceTech(item: ExperienceItem): string[] {
